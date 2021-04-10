@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEVICEMESSAGES
+	 name="eset"
+	 displayname="Eset Endpoint Security"
+	 group="Anti Virus"
+	 type="7104">
+<VERSION
+	 xml="1"
+	 revision="1"
+	 device="2.0"/>
+<TAGVALMAP/>
+<HEADER
+	 id1="HDR1"
+	 id2="HDR1"
+	 content="&lt;effective_time&gt;ESET ERAServer[&lt;id&gt;]: {{&quot;event_type&quot;:&quot;&lt;messageid&gt;&quot;,&quot;ipv4&quot;:&quot;&lt;hostip&gt;&quot;,&quot;hostname&quot;:&quot;&lt;hostname&gt;&quot;,&quot;source_uuid&quot;:&quot;&lt;fld&gt;&quot;,&quot;occured&quot;:&quot;&lt;event_time_string&gt;&quot;,&quot;severity&quot;:&quot;&lt;severity&gt;&quot;,&lt;!payload&gt;"/>
+<HEADER
+	 id1="HDR2"
+	 id2="HDR2"
+	 content="&lt;effective_time&gt;ESET ERAServer[&lt;id&gt;]: {{&quot;event_type&quot;:&quot;&lt;messageid&gt;&quot;,&quot;hostname&quot;:&quot;&lt;hostname&gt;&quot;,&quot;source_uuid&quot;:&quot;&lt;fld&gt;&quot;,&quot;occured&quot;:&quot;&lt;event_time_string&gt;&quot;,&quot;severity&quot;:&quot;&lt;severity&gt;&quot;,&lt;!payload&gt;"/>
+<HEADER
+	 id1="HDR3"
+	 id2="HDR3"
+	 content="1&lt;effective_time&gt;Z ESET.dpg.lk ERAServer&lt;id&gt;Syslog {{&quot;event_type&quot;:&quot;&lt;messageid&gt;&quot;,&quot;ipv4&quot;:&quot;&lt;hostip&gt;&quot;,&quot;source_uuid&quot;:&quot;&lt;fld&gt;&quot;,&quot;occured&quot;:&quot;&lt;event_time_string&gt;&quot;,&quot;severity&quot;:&quot;&lt;severity&gt;&quot;,&lt;!payload&gt;"/>
+<MESSAGE
+	 id1="Audit_Event"
+	 id2="Audit_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;domain&quot;:&quot;&lt;domain&gt;&quot;,&quot;action&quot;:&quot;&lt;action&gt;&quot;,&quot;target&quot;:&quot;&lt;username&gt;&quot;,&quot;detail&quot;:&quot;&lt;detail&gt;&quot;,&quot;user&quot;:&quot;&lt;event_user&gt;&quot;,&quot;result&quot;:&quot;&lt;result&gt;&quot;}"/>
+<MESSAGE
+	 id1="Audit_Event:01"
+	 id2="Audit_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;domain&quot;:&quot;&lt;domain&gt;&quot;,&quot;action&quot;:&quot;&lt;action&gt;&quot;,&quot;detail&quot;:&quot;&lt;detail&gt;&quot;,&quot;user&quot;:&quot;&lt;event_user&gt;&quot;,&quot;result&quot;:&quot;&lt;result&gt;&quot;}"/>
+<MESSAGE
+	 id1="FirewallAggregated_Event"
+	 id2="FirewallAggregated_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;event&quot;:&quot;&lt;event_name&gt;&quot;,&quot;source_address&quot;:&quot;&lt;saddr&gt;&quot;,&quot;source_address_type&quot;:&quot;&lt;fld6&gt;&quot;,&quot;source_port&quot;:&lt;sport&gt;,&quot;target_address&quot;:&quot;&lt;daddr&gt;&quot;,&quot;target_address_type&quot;:&quot;&lt;fld7&gt;&quot;,&quot;target_port&quot;:&lt;dport&gt;,&quot;protocol&quot;:&quot;&lt;protocol&gt;&quot;,&quot;inbound&quot;:&lt;fld8&gt;,&quot;aggregate_count&quot;:&lt;fld9&gt;}"/>
+<MESSAGE
+	 id1="FirewallAggregated_Event:01"
+	 id2="FirewallAggregated_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;event&quot;:&quot;&lt;event_name&gt;&quot;,&quot;source_address&quot;:&quot;&lt;saddr&gt;&quot;,&quot;source_address_type&quot;:&quot;&lt;fld6&gt;&quot;,&quot;target_address&quot;:&quot;&lt;daddr&gt;&quot;,&quot;target_address_type&quot;:&quot;&lt;fld7&gt;&quot;,&quot;protocol&quot;:&quot;&lt;protocol&gt;&quot;,&quot;inbound&quot;:&lt;fld8&gt;,&quot;aggregate_count&quot;:&lt;fld9&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:02"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:29"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:17"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:16"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:37"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:42"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:18"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:15"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:14"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:03"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:30"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:31"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:04"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:24"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:20"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:32"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:22"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:50"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:19"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:52"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:21"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:33"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:45"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:44"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:47"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:13"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:01"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:34"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:51"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:49"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:27"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:36"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:26"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:05"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:35"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:46"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:06"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:23"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:28"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:38"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:43"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:07"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:25"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;&lt;@starttime:*EVNTTIME($MSG,'%D-%B-%W %N:%U:%O',fld5)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;firstseen&quot;:&quot;&lt;fld5&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:12"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:40"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:39"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:41"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:48"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_type&quot;:&quot;&lt;threat_val&gt;&quot;,&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:09"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_name&quot;:&quot;&lt;threat_name&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_taken&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:08"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld4&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;action_error&quot;:&quot;&lt;action&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;}"/>
+<MESSAGE
+	 id1="Threat_Event:10"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;processname&quot;:&quot;&lt;process&gt;&quot;,&quot;circumstances&quot;:&quot;&lt;ec_outcome&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+<MESSAGE
+	 id1="Threat_Event:11"
+	 id2="Threat_Event"
+	 functions="&lt;@recorded_time:*EVNTTIME($HDR,'%B %F %N:%U:%O',effective_time)&gt;&lt;@event_time:*EVNTTIME($HDR,'%D-%B-%W %N:%U:%O',event_time_string)&gt;"
+	 content="&quot;threat_flags&quot;:&quot;&lt;fld10&gt;&quot;,&quot;scanner_id&quot;:&quot;&lt;fld1&gt;&quot;,&quot;scan_id&quot;:&quot;&lt;fld2&gt;&quot;,&quot;engine_version&quot;:&quot;&lt;fld3&gt;&quot;,&quot;object_type&quot;:&quot;&lt;obj_type&gt;&quot;,&quot;object_uri&quot;:&quot;&lt;obj_value&gt;&quot;,&quot;threat_handled&quot;:&lt;event_state&gt;,&quot;need_restart&quot;:&lt;fld4&gt;,&quot;username&quot;:&quot;&lt;username&gt;&quot;,&quot;hash&quot;:&quot;&lt;filename&gt;&quot;}"/>
+</DEVICEMESSAGES>
