@@ -1,0 +1,230 @@
+<!--
+  -  NXLog JSON : Windows Event Logs : Custom Rules
+  -  Author : Isuru Tharanga
+  -  Rule ID Range : 112000 - 112199
+-->
+
+
+<!-- Custom Rules -->
+<group name="threat_intel,ip_denylist,windows_sysmon,">
+
+<!-- AlienVault -->
+  <rule id="112000" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] AlienVault DENY IP</description>
+      <group>alienvault,denylist_dst_ip,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="112001" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] OpenPhish DENY IP</description>
+      <group>phishing,openphish,denylist_dst_ip,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="112003" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] PhishTank DENY IP</description>
+      <group>phishing,phishtank,denylist_dst_ip,</group>
+  </rule>
+
+<!-- FeodoTracker Abuse.ch -->
+  <rule id="112004" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/feodo-ip-denylist</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] Feodo Tracker Botnet C2 IP</description>
+      <group>c2,botnet,feodotracker,denylist_dst_ip,</group>
+  </rule>
+
+<!-- SSLBL Abuse.ch -->
+  <rule id="112005" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/sslbl-ip-denylist</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] SSLBL Botnet C2 IP</description>
+      <group>c2,botnet,sslbl,denylist_dst_ip,</group>
+  </rule>
+
+<!-- Sunburst -->
+  <rule id="112006" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/sunburst-ip-denylist</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] Sunburst Botnet C2 IP</description>
+      <group>sunburst,denylist_dst_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,domain_denylist,windows_sysmon,">
+
+<!-- PhishTank -->
+  <rule id="112010" level="10">
+      <if_group>sysmon_event_22</if_group>
+      <list field="QueryName" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>DNS Event: [$(Hostname)]: DNS query [$(QueryName)] PhishTank DENY Domain by $(Image)</description>
+      <group>phishing,phishtank,denylist_dst_domain,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="112011" level="10">
+      <if_group>sysmon_event_22</if_group>
+      <list field="QueryName" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>DNS Event: [$(Hostname)]: DNS query [$(QueryName)] OpenPhish DENY Domain by $(Image)</description>
+      <group>phishing,openphish,denylist_dst_domain,</group>
+  </rule>
+
+<!-- Sunburst -->
+  <rule id="112012" level="10">
+      <if_group>sysmon_event_22</if_group>
+      <list field="QueryName" lookup="address_match_key">etc/lists/sunburst-domain-denylist</list>
+      <description>DNS Event: [$(Hostname)]: DNS query [$(QueryName)] Sunburst DENY Domain by $(Image)</description>
+      <group>sunburst,denylist_dst_domain,</group>
+  </rule>
+
+</group>
+
+
+<group name="threat_intel,tor_exit_nodes,windows_sysmon,">
+
+<!-- TOR Exit Nodes -->
+  <rule id="112013" level="10">
+      <if_group>sysmon_event_3</if_group>
+      <list field="DestinationIp" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Network Event: [$(Hostname)]: Network Connection from [$(Image)] $(SourceIp) > [$(DestinationIp)] TOR Exit NODE</description>
+      <group>denylist_dst_ip,</group>
+  </rule>
+
+</group>
+
+<!--
+
+<group name="threat_intel,malware_hash_denylist,windows_sysmon,">
+-->
+<!-- Malware Bazaar Abuse.ch -->
+<!--
+  <rule id="100260" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100261" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100262" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100263" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100264" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+-->
+<!-- FireEye Red Team Tools -->
+<!--
+  <rule id="100265" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100266" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100267" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100268" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100269" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+-->
+<!-- Sunburst -->
+<!--
+  <rule id="100270" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100271" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100272" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100273" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100274" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+ 
+</group>
+-->
+
+<group name="metasploit,windows_sysmon,">
+
+  <rule id="112100" level="14">
+      <if_group>sysmon_event_3</if_group>
+      <field name="DestinationPort">^4444$</field>
+      <description>Network Event: $(Hostname) [$(location)]: Network Connection from $(Image) > $(DestinationIp):[$(DestinationPort)] Metasploit Default Reverse Shell Port</description>
+  </rule>
+
+</group>

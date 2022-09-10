@@ -1,0 +1,72 @@
+<!--
+  -  Cisco FMC : NXLog : Correlation Rules
+  -  Author : Isuru Tharanga
+  -  Rule ID Range : 100400 - 100699
+-->
+
+<!-- Custom Rules -->
+<group name="correlation,">
+  <rule id="100400" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112000|100205</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to AlienVault DENY IP</description>
+      <group>alienvault,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100401" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112001|100210</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to OpenPhish DENY IP</description>
+      <group>phishing,openphish,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100402" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112003|100215</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to PhishTank DENY IP</description>
+      <group>phishing,phishtank,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100403" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112004|100220</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to Feodo Tracker Botnet C2 IP</description>
+      <group>c2,botnet,feodotracker,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100404" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112005|100225</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to SSLBL Botnet C2 IP</description>
+      <group>c2,botnet,sslbl,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100405" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112006|100230</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to Sunburst DENY IP</description>
+      <group>sunburst,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100406" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112013|100255</if_matched_sid>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Correlation Event: Allowed Network Connection to TOR Exit NODE</description>
+      <group>tor,denylist_dst_ip,</group>
+  </rule>
+
+
+  <rule id="100410" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112010|100235</if_matched_sid>
+      <same_field>^QueryName$|^Destination.Dns.Domain$</same_field>
+      <description>Correlation Event: DNS Request to PhishTank DENY Domain</description>
+  </rule>
+
+  <rule id="100411" level="11" frequency="2" timeframe="120">
+      <if_matched_sid>112011|100240</if_matched_sid>
+      <same_field>^QueryName$|^Destination.Dns.Domain$</same_field>
+      <description>Correlation Event: DNS Request to OpenPhish DENY Domain</description>
+  </rule>
+
+
+</group>

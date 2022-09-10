@@ -1,0 +1,184 @@
+<!--
+  -  NXLog JSON : Windows Sysmon Logs : Rules
+  -  Author : Isuru Tharanga
+  -  Rule ID Range : 111000 - 111199
+-->
+
+
+<!-- NXLog JSON Windows Sysmon Rules Identifier -->
+<group name="nxlog,nxlog_windows,windows_sysmon,">
+  <rule id="111000" level="0">
+    <decoded_as>nxlog-json-win-sysmon</decoded_as>
+    <description>Grouping of NXLog JSON - Windows Sysmon Logs - Rules</description>
+  </rule>
+
+  <!-- Windows Sysmon Rules Event IDs -->
+  <rule id="111001" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^1$</field>
+    <description>Process Event: [$(Hostname)]: Process Creation by $(Description): [$(Image)]</description>
+    <group>sysmon_event_1,</group>
+  </rule>
+
+  <rule id="111002" level="4">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^2$</field>
+    <description>File Event: [$(Hostname)]: $(Image) changed file creation time of [$(TargetFilename)] from $(PreviousCreationUtcTime) > [$(CreationUtcTime)]</description>
+    <group>sysmon_event_2,</group>
+  </rule>
+
+  <rule id="111003" level="4">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^3$</field>
+    <description>Network Event: [$(Hostname)]: Network Connection from $(Image) > [$(DestinationIp):$(DestinationPort)]</description>
+    <group>sysmon_event_3,</group>
+  </rule>
+
+  <rule id="111004" level="13">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^4$</field>
+    <description>Sysmon Event: Sysmon Service State Changed by $(Image)</description>
+    <group>sysmon_event_4,</group>
+  </rule>
+
+  <rule id="111005" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^5$</field>
+    <description>Process Event: [$(Hostname)]: Process Terminated by $(Image)</description>
+    <group>sysmon_event_5,</group>
+  </rule>
+
+  <rule id="111006" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^6$</field>
+    <description>[$(Hostname)]: Driver Loaded: $(ImageLoaded)</description>
+    <group>sysmon_event_6,</group>
+  </rule>
+
+  <rule id="111007" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^7$</field>
+    <description>[$(Hostname)]: Image Loaded by $(Image)</description>
+    <group>sysmon_event_7,</group>
+  </rule>
+
+  <rule id="111008" level="5">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^8$</field>
+    <description>[$(Hostname)]: Remote Thread created by $(SourceImage)</description>
+    <group>sysmon_event_8,</group>
+  </rule>
+
+  <rule id="111009" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^9$</field>
+    <description>Raw Access Read by $(Image)</description>
+    <group>sysmon_event_9,</group>
+  </rule>
+
+  <rule id="111010" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^10$</field>
+    <description>Process Event: Process Accessed by $(Image)</description>
+    <group>sysmon_event_10,</group>
+  </rule>
+
+  <rule id="111011" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^11$</field>
+    <description>File Event: [$(Hostname)]: File [$(TargetFilename)] created by $(Image)</description>
+    <group>sysmon_event_11,</group>
+  </rule>
+
+  <rule id="111012" level="6">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^12$</field>
+    <description>Registry Event: [$(Hostname)]: Object Created/Deleted by $(Image)</description>
+    <group>sysmon_event_12,</group>
+  </rule>
+
+  <rule id="111013" level="5">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^13$</field>
+    <description>Registry Event: Value set by $(Image)</description>
+    <group>sysmon_event_13,</group>
+  </rule>
+
+  <rule id="111014" level="7">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^14$</field>
+    <description>Registry Event: Key/Value renamed by $(Image)</description>
+    <group>sysmon_event_14,</group>
+  </rule>
+
+  <rule id="111015" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^15$</field>
+    <description>File Event: File Create Stream Hash by $(Image)</description>
+    <group>sysmon_event_15,</group>
+  </rule>
+
+    <rule id="111016" level="7">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^16$</field>
+    <description>Service Configuration Change by $(Image)</description>
+    <group>sysmon_event_16,</group>
+  </rule>
+
+  <rule id="111017" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^17$</field>
+    <description>Pipe Event: Pipe Created by $(Image)</description>
+    <group>sysmon_event_17,</group>
+  </rule>
+
+  <rule id="111018" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^18$</field>
+    <description>Pipe Event: Pipe Connected by $(Image)</description>
+    <group>sysmon_event_18,</group>
+  </rule>
+
+  <rule id="111019" level="8">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^19$</field>
+    <description>WMI Event: WMI Event Filter Activity by $(Image)</description>
+    <group>sysmon_event_19,</group>
+  </rule>
+
+  <rule id="111020" level="8">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^20$</field>
+    <description>WMI Event: WMI Event Consumer Activity by $(Image)</description>
+    <group>sysmon_event_20,</group>
+  </rule>
+
+  <rule id="111021" level="8">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^21$</field>
+    <description>WMI Event: WMI Event Consumer to Filter Activity by $(Image)</description>
+    <group>sysmon_event_21,</group>
+  </rule>
+
+  <rule id="111022" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^22$</field>
+    <description>DNS Event: [$(Hostname)]: DNS query [$(QueryName)] by $(Image)</description>
+    <group>sysmon_event_22,</group>
+  </rule>
+
+  <rule id="111023" level="3">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^23$</field>
+    <description>File Event: A File was Deleted by $(Image)</description>
+    <group>sysmon_event_23,</group>
+  </rule>
+
+  <rule id="111025" level="5">
+    <if_sid>111000</if_sid>
+    <field name="EventID">^255$</field>
+    <description>Sysmon Event: Error</description>
+    <group>sysmon_event_255,</group>
+  </rule>
+
+</group>

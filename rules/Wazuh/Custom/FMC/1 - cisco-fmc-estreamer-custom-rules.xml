@@ -1,0 +1,160 @@
+<!-- Custom Rules -->
+
+<group name="threat_intel,ip_denylist,">
+
+<!-- AlienVault -->
+  <rule id="100200" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>$(Source.IP.Address) > $(Destination.IP.Address) [AlienVault DENY IP]</description>
+      <group>alienvault,destination_ip,</group>
+  </rule>
+
+  <rule id="100201" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>[AlienVault DENY IP] $(Source.IP.Address) > $(Destination.IP.Address)</description>
+      <group>alienvault,source_ip,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="100205" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>$(Source.IP.Address) > $(Destination.IP.Address) [OpenPhish DENY IP]</description>
+      <group>openphish,destination_ip,</group>
+  </rule>
+
+  <rule id="100206" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>[OpenPhish DENY IP] $(Source.IP.Address) > $(Destination.IP.Address)</description>
+      <group>openphish,source_ip,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="100210" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>$(Source.IP.Address) > $(Destination.IP.Address) [PhishTank DENY IP]</description>
+      <group>phishtank,destination_ip,</group>
+  </rule>
+
+  <rule id="100211" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>[PhishTank DENY IP] $(Source.IP.Address) > $(Destination.IP.Address)</description>
+      <group>phishtank,source_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,domain_denylist,">
+
+<!-- PhishTank -->
+  <rule id="100215" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>$(Source.IP.Address) > $(Destination.Dns.Domain) [PhishTank DENY DOMAIN]</description>
+      <group>phishtank,destination_domain,</group>
+  </rule>
+
+  <rule id="100216" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>[PhishTank DENY DOMAIN] $(Source.Dns.Domain) > $(Destination.IP.Address)</description>
+      <group>phishtank,source_domain,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="100220" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>$(Source.IP.Address) > $(Destination.Dns.Domain) [OpenPhish DENY DOMAIN]</description>
+      <group>openphish,destination_domain,</group>
+  </rule>
+
+  <rule id="100221" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>[OpenPhish DENY DOMAIN] $(Source.Dns.Domain) > $(Destination.IP.Address)</description>
+      <group>openphish,source_domain,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,url_denylist,">
+
+<!-- Openphish -->
+  <rule id="100225" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/openphish-url-denylist</list>
+      <description>$(Source.IP.Address) > $(Request.URL) [OpenPhish DENY URL]</description>
+      <group>openphish,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="100226" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/phishtank-url-denylist</list>
+      <description>$(Source.IP.Address) > $(Request.URL) [PhishTank DENY URL]</description>
+      <group>phishtank,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,tor_exit_nodes,">
+
+<!-- TOR Exit Nodes -->
+  <rule id="100230" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>$(Source.IP.Address) > $(Destination.IP.Address) [TOR Exit NODE]</description>
+      <group>destination_ip,</group>
+  </rule>
+
+  <rule id="100231" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>[TOR Exit NODE] $(Source.IP.Address) > $(Destination.IP.Address)</description>
+      <group>source_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,malware_hash_denylist,">
+
+<!-- Malware Bazaar Abuse.ch -->
+  <rule id="100235" level="10">
+      <if_group>cisco_fmc</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Source.IP.Address) > $(File.Hash) [Malware Bazaar HASH]</description>
+      <group>malware_bazaar,</group>
+  </rule>
+ 
+</group>
+
+
+
+<group name="10.0.0.0/8,">
+
+<!-- Grouping of 10.0.0.0/8 -->
+  <rule id="100240" level="12">
+      <if_group>threat_intel</if_group>
+      <field name="Destination.IP.Address">10.\d+.\d+.\d+</field>
+  </rule>
+ 
+  <rule id="100241" level="12">
+      <if_group>threat_intel</if_group>
+      <field name="Source.IP.Address">10.\d+.\d+.\d+</field>
+  </rule>
+
+</group>

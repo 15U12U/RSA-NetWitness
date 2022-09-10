@@ -1,0 +1,19 @@
+<group name="ossec,">
+
+  <rule id="531" level="7" ignore="7200" overwrite="yes">
+    <if_sid>530</if_sid>
+    <options>alert_by_email</options>     
+    <match>ossec: output: 'df -P': /dev/</match>
+    <regex>80%</regex>
+    <description>Partition usage reached 80% (disk space monitor).</description>
+    <group>low_diskspace,pci_dss_10.6.1,gpg13_10.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,</group>
+  </rule>
+
+  <rule id="502" level="3" overwrite="yes">
+    <if_sid>500</if_sid>
+    <match>Ossec started</match>
+    <description>Ossec server started.</description>
+    <group>pci_dss_10.6.1,gpg13_10.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,</group>
+  </rule>
+  
+</group>

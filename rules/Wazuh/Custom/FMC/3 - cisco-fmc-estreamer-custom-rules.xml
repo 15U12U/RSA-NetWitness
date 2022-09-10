@@ -1,0 +1,288 @@
+<!-- Custom Rules -->
+<group name="allowed_connection,">
+  <rule id="100397" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Allow$</field>
+      <description>Allowed Connection: $(Source.IP.Address) > $(Destination.IP.Address)</description>
+  </rule>
+
+  <rule id="100398" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Allow$</field>
+      <field name="Source.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Allowed Connection: [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>src_10.0.0.0/8,</group>
+  </rule>
+
+  <rule id="100399" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Allow$</field>
+      <field name="Destination.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)]</description>
+      <group>dst_10.0.0.0/8,</group>
+  </rule>
+</group>
+
+<group name="blocked_connection,">
+  <rule id="100400" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Block$</field>
+      <field name="Source.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Blocked Connection: [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>src_10.0.0.0/8,</group>
+  </rule>
+</group>
+
+<group name="threat_intel,ip_denylist,">
+
+<!-- AlienVault -->
+  <rule id="100401" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] AlienVault DENY IP</description>
+      <group>alienvault,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100402" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Allowed Connection: AlienVault DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>alienvault,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100403" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] AlienVault DENY IP</description>
+      <group>alienvault,denylist_dst_ip,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="100502" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] OpenPhish DENY IP</description>
+      <group>openphish,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100503" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Allowed Connection: OpenPhish DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>openphish,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100504" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] OpenPhish DENY IP</description>
+      <group>openphish,denylist_dst_ip,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="100702" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] PhishTank DENY IP</description>
+      <group>phishtank,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100703" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Allowed Connection: PhishTank DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>phishtank,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100704" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] PhishTank DENY IP</description>
+      <group>phishtank,denylist_dst_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,domain_denylist,">
+
+<!-- PhishTank -->
+  <rule id="100706" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] PhishTank DENY Domain</description>
+      <group>phishtank,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100707" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Allowed Connection: PhishTank DENY Domain [$(Source.Dns.Domain)] > $(Destination.IP.Address)</description>
+      <group>phishtank,denylist_src_domain,</group>
+  </rule>
+
+  <rule id="100708" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] PhishTank DENY Domain</description>
+      <group>phishtank,denylist_dst_domain,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="100720" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] OpenPhish DENY Domain</description>
+      <group>openphish,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100721" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Allowed Connection: OpenPhish DENY Domain [$(Source.Dns.Domain)] > $(Destination.IP.Address)</description>
+      <group>openphish,denylist_src_domain,</group>
+  </rule>
+
+  <rule id="100722" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] OpenPhish DENY Ddomain</description>
+      <group>openphish,denylist_dst_domain,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,url_denylist,">
+
+<!-- Openphish -->
+  <rule id="100730" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/openphish-url-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Request.URL)] OpenPhish DENY URL</description>
+      <group>openphish,</group>
+  </rule>
+
+  <rule id="100731" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/openphish-url-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Request.URL)] OpenPhish DENY URL</description>
+      <group>openphish,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="100732" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/phishtank-url-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Request.URL)] PhishTank DENY URL</description>
+      <group>phishtank,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,tor_exit_nodes,">
+
+<!-- TOR Exit Nodes -->
+  <rule id="100740" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] TOR Exit NODE</description>
+      <group>denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100741" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Allowed Connection: TOR Exit NODE [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100742" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] TOR Exit NODE</description>
+      <group>denylist_dst_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,malware_hash_denylist,">
+
+<!-- Malware Bazaar Abuse.ch -->
+  <rule id="100801" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100802" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100803" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100804" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100805" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+ 
+</group>
+
+
+
+<group name="threat_intel,dns,">
+  <rule id="100901" level="11">
+      <if_group>denylist_dst_domain</if_group>
+      <field name="Destination.Port">^53$</field>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/brandix-dns-servers</list>
+      <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Brandix DNS Server</description>
+  </rule>
+
+  <rule id="100902" level="11">
+      <if_group>denylist_dst_domain</if_group>
+      <field name="Destination.Port">^53$</field>
+      <list field="Destination.IP.Address" lookup="not_address_match_key">etc/lists/brandix-dns-servers</list>
+      <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Different DNS Server</description>
+  </rule>
+
+</group>
+
+<group name="metasploit,">
+
+  <rule id="100950" level="12">
+      <if_group>allowed_connection</if_group>
+      <field name="Destination.Port">^4444$</field>
+      <description>Allowed Connection: $(Source.IP.Address) > $(Destination.IP.Address):[$(Destination.Port)] Metasploit Default Reverse Shell Port</description>
+  </rule>
+
+  <rule id="100951" level="11">
+      <if_group>blocked_connection</if_group>
+      <field name="Destination.Port">^4444$</field>
+      <description>Blocked Connection: $(Source.IP.Address) > $(Destination.IP.Address):[$(Destination.Port)] Metasploit Default Reverse Shell Port</description>
+  </rule>
+
+</group>

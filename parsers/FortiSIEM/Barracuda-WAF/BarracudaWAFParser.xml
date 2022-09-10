@@ -1,0 +1,231 @@
+<patternDefinitions>
+
+<!-- Log Types -->
+<!-- WF  : Web Firewall Logs -->
+<!-- TR  : Access Logs -->
+<!-- AUDIT : Audit Logs -->
+<!-- NF  : Network Firewall Logs -->
+<!-- SYS   : System Logs -->
+  
+<pattern name="patEventTypes"><![CDATA[barracuda WF|barracuda TR|barracuda AUDIT|barracuda NF|barracuda SYS]]></pattern>
+<pattern name="patStrLeftSB"><![CDATA[[^\[]*]]></pattern>
+<pattern name="patStrDoubleQ"><![CDATA[[^"]*]]></pattern>
+<pattern name="patHeader"><![CDATA[\w{3}\s+\d{2}\s+\d{2}:\d{2}:\d{2}\s+\w+\s+]]></pattern>
+</patternDefinitions>
+
+<eventFormatRecognizer><![CDATA[\b<:patEventTypes>\b]]></eventFormatRecognizer>
+
+<parsingInstructions>
+<collectFieldsByRegex src="$_rawmsg">
+<regex><![CDATA[<:gPatSyslogPRI><:patHeader><_year:gPatYear>-<_mon:gPatMonNum>-<_day:gPatDay>\s+<_time:gPatTime>\.\d+\s+<_tz:gPatTimeZone>\s+<_event:patEventTypes>\s+<_body:gPatMesgBody>]]></regex>
+</collectFieldsByRegex>
+
+<setEventAttribute attr="deviceTime">toDateTime($_mon, $_day, $_year, $_time, $_tz)</setEventAttribute>
+
+<!-- Default Log Format -->
+<!-- SYS   : %t %un %lt %md %ll %ei %ms -->
+<!-- WF  : %t %un %lt %sl %ad %ci %cp %ai %ap %ri %rt %at %fa %adl %m %u %p %sid %ua %px %pp %au %r -->
+<!-- TR  : %t %un %lt %ai %ap %ci %cp %id %cu %m %p %h %v %s %bs %br %ch %tt %si %sp %st %sid %rtf %pmf %pf %wmf %u %q %r %c %ua %px %pp %au %cs1 %cs2 %cs3 -->
+<!-- AUDIT : %t %un %lt %an %ct %li %lp %trt %tri %cn %cht %ot %on %var %ov %nv %add -->
+<!-- NF  : %t %un %lt %sl %p %si %sp %di %dp %act %an %dsc -->
+    
+<!-- Common Log Fields -->
+<!-- %t   : Time -->
+<!-- %un  : Unit Name -->
+<!-- %lt  : Log Type -->
+
+<choose>
+<when test="$_event = 'barracuda WF'">
+  
+      <!-- Barracuda Web Firewall Log Fields -->
+      <!-- %sl  : Severity -->
+      <!-- %ad  : Attack Type -->
+      <!-- %ci  : Client IP -->
+      <!-- %cp  : Client Port -->
+      <!-- %ai  : Service IP -->
+      <!-- %ap  : Service Port -->
+      <!-- %ri  : Rule ID -->
+      <!-- %rt  : Rule Type -->
+      <!-- %at  : Action -->
+      <!-- %fa  : Follow-up Action -->
+      <!-- %adl : Attack Details -->
+      <!-- %m   : Method -->
+      <!-- %u   : URL -->
+      <!-- %p   : Protocol -->
+      <!-- %sid : Session ID -->
+      <!-- %ua  : User Agent -->
+      <!-- %px  : Proxy IP -->
+      <!-- %pp  : Proxy Port -->
+      <!-- %au  : Authenticated User -->
+      <!-- %r   : Referer -->
+  
+<setEventAttribute attr="eventType">Barracuda-WAF-WebFirewall</setEventAttribute>
+<collectAndSetAttrByPosWithNestedSep L1Sep=" " L2Sep='""' src="$_body">
+<attrPosMap attr="eventSeverity" pos="1"/>
+<attrPosMap attr="attackType" pos="2"/>
+<attrPosMap attr="srcIpAddr" pos="3"/>
+<attrPosMap attr="srcIpPort" pos="4"/>
+<attrPosMap attr="destIpAddr" pos="5"/>
+<attrPosMap attr="destIpPort" pos="6"/>
+<attrPosMap attr="ruleId" pos="7"/>
+<attrPosMap attr="ruleName" pos="8"/>
+<attrPosMap attr="eventAction" pos="9"/>
+<attrPosMap attr="secAction" pos="10"/>
+<attrPosMap attr="attackInfo" pos="11"/>
+<attrPosMap attr="httpMethod" pos="12"/>
+<attrPosMap attr="infoURL" pos="13"/>
+<attrPosMap attr="appTransportProto" pos="14"/>
+<attrPosMap attr="sessionId" pos="15"/>
+<attrPosMap attr="httpUserAgent" pos="16"/>
+<attrPosMap attr="httpProxyLogin" pos="19"/>
+<attrPosMap attr="httpReferrer" pos="20"/>
+</collectAndSetAttrByPosWithNestedSep>
+</when>
+<when test="$_event = 'barracuda TR'">
+  
+      <!-- Barracuda Access Log Fields -->
+      <!-- %ai  : Service IP -->
+      <!-- %ap  : Service Port -->
+      <!-- %ci  : Client IP -->
+      <!-- %cp  : Client Port -->
+      <!-- %id  : Login ID -->
+      <!-- %cu  : Certificate User -->
+      <!-- %m   : Method -->
+      <!-- %p   : Protocol -->
+      <!-- %h   : Host -->
+      <!-- %v   : Version -->
+      <!-- %s   : HTTP Status -->
+      <!-- %bs  : Bytes Sent -->
+      <!-- %br  : Bytes Received -->
+      <!-- %ch  : Cache Hit -->
+      <!-- %tt  : Time Taken -->
+      <!-- %si  : Server IP -->
+      <!-- %sp  : Server Port -->
+      <!-- %st  : Server Time -->
+      <!-- %sid : Session ID -->
+      <!-- %rtf : Response Type -->
+      <!-- %pmf : Profile Matched -->
+      <!-- %pf  : Protected -->
+      <!-- %wmf : WF Matched -->
+      <!-- %u   : URL -->
+      <!-- %q   : Query String -->
+      <!-- %r   : Referer -->
+      <!-- %c   : Cookie -->
+      <!-- %ua  : User Agent -->
+      <!-- %px  : Proxy IP -->
+      <!-- %pp  : Proxy Port -->
+      <!-- %au  : Authenticated User -->
+      <!-- %cs1 : Custom Header 1 -->
+      <!-- %cs2 : Custom Header 2 -->
+      <!-- %cs3 : Custom Header 3 -->
+  
+<setEventAttribute attr="eventType">Barracuda-WAF-Access</setEventAttribute>
+<collectAndSetAttrByPosWithNestedSep L1Sep=" " L2Sep='""' src="$_body">
+<attrPosMap attr="serverIpAddr" pos="1"/>
+<attrPosMap attr="appPort" pos="2"/>
+<attrPosMap attr="srcIpAddr" pos="3"/>
+<attrPosMap attr="srcIpPort" pos="4"/>
+<attrPosMap attr="logID" pos="5"/>
+<attrPosMap attr="user" pos="6"/>
+<attrPosMap attr="httpMethod" pos="7"/>
+<attrPosMap attr="appTransportProto" pos="8"/>
+<attrPosMap attr="hostIpAddr" pos="9"/>
+<attrPosMap attr="httpVersion" pos="10"/>
+<attrPosMap attr="httpStatusCode" pos="11"/>
+<attrPosMap attr="sentBytes" pos="12"/>
+<attrPosMap attr="recvBytes" pos="13"/>
+<attrPosMap attr="cacheHit" pos="14"/>
+<attrPosMap attr="destIpAddr" pos="16"/>
+<attrPosMap attr="destIpPort" pos="17"/>
+<attrPosMap attr="deviceTime" pos="18"/>
+<attrPosMap attr="sessionId" pos="19"/>
+<attrPosMap attr="infoURL" pos="24"/>
+<attrPosMap attr="uriQuery" pos="25"/>
+<attrPosMap attr="httpReferrer" pos="26"/>
+<attrPosMap attr="httpCookie" pos="27"/>
+<attrPosMap attr="httpUserAgent" pos="28"/>
+<attrPosMap attr="httpProxyLogin" pos="31"/>
+</collectAndSetAttrByPosWithNestedSep>
+</when>
+<when test="$_event = 'barracuda AUDIT'">
+  
+      <!-- Barracuda Audit Log Fields -->
+      <!-- %an  : Admin Name -->
+      <!-- %ct  : Client Type -->
+      <!-- %li  : Login IP -->
+      <!-- %lp  : Login Port -->
+      <!-- %trt : Transaction Type -->
+      <!-- %cn  : Command Name -->
+      <!-- %cht : Change Type -->
+      <!-- %ot  : Object Type -->
+      <!-- %on  : Object Name -->
+      <!-- %var : Variable -->
+      <!-- %ov  : Old Value -->
+      <!-- %nv  : New Value -->
+      <!-- %add : Additional Data -->
+  
+<setEventAttribute attr="eventType">Barracuda-WAF-Audit</setEventAttribute>
+<collectAndSetAttrByPos src="$_body" sep=" ">
+<attrPosMap attr="administratorName" pos="1"/>
+<attrPosMap attr="loginType" pos="2"/>
+<attrPosMap attr="srcIpAddr" pos="3"/>
+<attrPosMap attr="srcIpPort" pos="4"/>
+<attrPosMap attr="transactionType" pos="5"/>
+<attrPosMap attr="command" pos="6"/>
+<attrPosMap attr="activityType" pos="7"/>
+<attrPosMap attr="targetOsObjType" pos="8"/>
+<attrPosMap attr="targetOsObjName" pos="9"/>
+<attrPosMap attr="propName" pos="10"/>
+<attrPosMap attr="oldValue" pos="11"/>
+<attrPosMap attr="newValue" pos="12"/>
+<attrPosMap attr="details" pos="13"/>
+</collectAndSetAttrByPos>
+</when>
+<when test="$_event = 'barracuda SYS'">
+  
+      <!-- Barracuda System Log Fields -->
+      <!-- %md  : Module Name -->
+      <!-- %ll  : Log Level -->
+      <!-- %ei  : Event ID -->
+      <!-- %ms  : Message -->
+  
+<setEventAttribute attr="eventType">Barracuda-WAF-System</setEventAttribute>
+<collectAndSetAttrByPos src="$_body" sep=" ">
+<attrPosMap attr="module" pos="1"/>
+<attrPosMap attr="logLevel" pos="2"/>
+<attrPosMap attr="eventId" pos="3"/>
+<attrPosMap attr="msg" pos="4"/>
+</collectAndSetAttrByPos>
+</when>
+<when test="$_event = 'barracuda NF'">
+  
+      <!-- Barracuda Network Firewall Log Fields -->
+      <!-- %sl  : Severity -->
+      <!-- %p   : Protocol -->
+      <!-- %si  : Source IP -->
+      <!-- %sp  : Source Port -->
+      <!-- %di  : Destination IP -->
+      <!-- %dp  : Destination Port -->
+      <!-- %act : Action ID -->
+      <!-- %an  : Admin Name -->
+      <!-- %dsc : Details -->
+  
+<setEventAttribute attr="eventType">Barracuda-WAF-NetworkFirewall</setEventAttribute>
+<collectAndSetAttrByPos src="$_body" sep=" ">
+<attrPosMap attr="eventSeverity" pos="1"/>
+<attrPosMap attr="_protocol" pos="2"/>
+<attrPosMap attr="srcIpAddr" pos="3"/>
+<attrPosMap attr="srcIpPort" pos="4"/>
+<attrPosMap attr="destIpAddr" pos="5"/>
+<attrPosMap attr="destIpPort" pos="6"/>
+<attrPosMap attr="actionId" pos="7"/>
+<attrPosMap attr="administratorName" pos="8"/>
+<attrPosMap attr="details" pos="9"/>
+</collectAndSetAttrByPos>
+<setEventAttribute attr="ipProto">convertStrToIntIpProto($_protocol)</setEventAttribute>
+</when>
+<otherwise>
+<setEventAttribute attr="eventType">Barracuda-WAF-Generic</setEventAttribute>
+</otherwise>
+</choose>
+</parsingInstructions>

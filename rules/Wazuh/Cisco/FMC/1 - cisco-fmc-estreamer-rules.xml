@@ -1,0 +1,684 @@
+<!--
+  -  Cisco Firepower Management Center : eStreamer eNcore CLI : Rules
+  -  Author : Isuru Tharanga
+-->
+
+<!-- Cisco Firepower Management Center Rules Identifier -->
+<group name="cisco_fmc,">
+  <rule id="100000" level="0">
+    <decoded_as>cisco-fmc-cef</decoded_as>
+    <description>Grouping of Cisco Firepower Management Center - eStreamer eNcore CLI - Rules</description>
+  </rule>
+
+<!-- General Events -->
+
+  <rule id="100001" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:1</field>
+    <description>New Host</description>
+  </rule>
+
+  <rule id="100002" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:2</field>
+    <description>New TCP Server</description>
+  </rule>
+
+  <rule id="100003" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:3</field>
+    <description>New Network Protocol</description>
+  </rule>
+
+  <rule id="100004" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:4</field>
+    <description>New Transport Protocol</description>
+  </rule>
+
+  <rule id="100005" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:5</field>
+    <description>New IP to IP Traffic</description>
+  </rule>
+
+  <rule id="100006" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:6</field>
+    <description>New UDP Server</description>
+  </rule>
+
+  <rule id="100007" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:7</field>
+    <description>New Client Application</description>
+  </rule>
+
+  <rule id="100008" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:8</field>
+    <description>New OS</description>
+  </rule>
+
+  <rule id="100009" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1000:9</field>
+    <description>New IPv6 to IPv6 Traffic</description>
+  </rule>
+
+  <rule id="100010" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:1</field>
+    <description>Host IP Address Changed</description>
+  </rule>
+
+  <rule id="100011" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:2</field>
+    <description>OS Information Update</description>
+  </rule>
+
+  <rule id="100012" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:3</field>
+    <description>Host IP Address Reused</description>
+  </rule>
+
+  <rule id="100013" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:4</field>
+    <description>Vulnerability Change</description>
+  </rule>
+
+  <rule id="100014" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:5</field>
+    <description>Hops Change</description>
+  </rule>
+
+  <rule id="100015" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:6</field>
+    <description>TCP Server Information Update</description>
+  </rule>
+
+  <rule id="100016" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:7</field>
+    <description>Host Timeout</description>
+  </rule>
+
+  <rule id="100017" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:8</field>
+    <description>TCP Port Closed</description>
+  </rule>
+
+  <rule id="100018" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:9</field>
+    <description>UDP Port Closed</description>
+  </rule>
+
+  <rule id="100019" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:10</field>
+    <description>UDP Server Information Update</description>
+  </rule>
+
+  <rule id="100020" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:11</field>
+    <description>TCP Port Timeout</description>
+  </rule>
+
+  <rule id="100021" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:12</field>
+    <description>UDP Port Timeout</description>
+  </rule>
+
+  <rule id="100022" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:13</field>
+    <description>MAC Information Change</description>
+  </rule>
+
+  <rule id="100023" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:14</field>
+    <description>Additional MAC Detected for Host</description>
+  </rule>
+
+  <rule id="100024" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:15</field>
+    <description>Host Last Seen</description>
+  </rule>
+
+  <rule id="100025" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:16</field>
+    <description>Host Identified as Router/Bridge</description>
+  </rule>
+
+  <rule id="100026" level="2">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:17</field>
+    <description>Connection Statistics</description>
+  </rule>
+
+  <rule id="100027" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:18</field>
+    <description>VLAN Tag Information Update</description>
+  </rule>
+
+  <rule id="100028" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:19</field>
+    <description>Host Deleted: Host Limit Reached</description>
+  </rule>
+
+  <rule id="100029" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:20</field>
+    <description>Client Application Timeout</description>
+  </rule>
+
+  <rule id="100030" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:21</field>
+    <description>NetBIOS Name Change</description>
+  </rule>
+
+  <rule id="100031" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:22</field>
+    <description>NetBIOS Domain Change</description>
+  </rule>
+
+  <rule id="100032" level="4">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:23</field>
+    <description>Host Dropped: Host Limit Reached</description>
+  </rule>
+
+  <rule id="100033" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:24</field>
+    <description>Banner Update</description>
+  </rule>
+
+  <rule id="100034" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:25</field>
+    <description>TCP Server Confidence Update</description>
+  </rule>
+
+  <rule id="100035" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:26</field>
+    <description>UDP Server Confidence Update</description>
+  </rule>
+
+  <rule id="100036" level="4">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:29</field>
+    <description>Identity Conflict</description>
+  </rule>
+
+  <rule id="100037" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:30</field>
+    <description>Identity Timeout</description>
+  </rule>
+
+  <rule id="100038" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:31</field>
+    <description>Secondary Host Update</description>
+  </rule>
+
+  <rule id="100039" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1001:32</field>
+    <description>Client Application Update</description>
+  </rule>
+
+  <rule id="100040" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:1</field>
+    <description>User Set Valid Vulnerabilities</description>
+  </rule>
+
+  <rule id="100041" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:2</field>
+    <description>User Set Invalid Vulnerabilities</description>
+  </rule>
+
+  <rule id="100042" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:3</field>
+    <description>User Delete Address</description>
+  </rule>
+
+  <rule id="100043" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:4</field>
+    <description>User Delete Server</description>
+  </rule>
+
+  <rule id="100044" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:5</field>
+    <description>User Set Host Criticality</description>
+  </rule>
+
+  <rule id="100045" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:6</field>
+    <description>Host Attribute Add</description>
+
+  </rule>
+
+  <rule id="100046" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:7</field>
+    <description>Host Attribute Update</description>
+  </rule>
+
+  <rule id="100047" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:8</field>
+    <description>Host Attribute Delete</description>
+  </rule>
+
+  <rule id="100048" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:9</field>
+    <description>Host Attribute Set Value</description>
+  </rule>
+
+  <rule id="100049" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:10</field>
+    <description>Host Attribute Delete Value</description>
+  </rule>
+
+  <rule id="100050" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:11</field>
+    <description>Add Scan Result</description>
+  </rule>
+
+  <rule id="100051" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:12</field>
+    <description>User Set Vulnerability Qualification</description>
+  </rule>
+
+  <rule id="100052" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:13</field>
+    <description>User Policy Control</description>
+  </rule>
+
+  <rule id="100053" level="4">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:14</field>
+    <description>Delete Protocol</description>
+  </rule>
+
+  <rule id="100054" level="4">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:15</field>
+    <description>Delete Client Application</description>
+  </rule>
+
+  <rule id="100055" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:16</field>
+    <description>User Set Operating System</description>
+  </rule>
+
+  <rule id="100056" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:17</field>
+    <description>User Account Seen</description>
+  </rule>
+
+  <rule id="100057" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:18</field>
+    <description>User Account Update</description>
+  </rule>
+
+  <rule id="100058" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:19</field>
+    <description>User Set Server</description>
+  </rule>
+
+  <rule id="100059" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:20</field>
+    <description>User Delete Address</description>
+  </rule>
+
+  <rule id="100060" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:21</field>
+    <description>User Delete Server</description>
+  </rule>
+
+  <rule id="100061" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:22</field>
+    <description>User Set Valid Vulnerabilities</description>
+  </rule>
+
+  <rule id="100062" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:23</field>
+    <description>User Set Invalid Vulnerabilities</description>
+  </rule>
+
+  <rule id="100063" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:24</field>
+    <description>User Host Criticality</description>
+  </rule>
+
+  <rule id="100064" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:25</field>
+    <description>Host Attribute Set Value</description>
+  </rule>
+
+  <rule id="100065" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:26</field>
+    <description>Host Attribute Delete Value</description>
+  </rule>
+
+  <rule id="100066" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:27</field>
+    <description>User Add Host</description>
+  </rule>
+
+  <rule id="100067" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:28</field>
+    <description>User Add Server</description>
+  </rule>
+
+  <rule id="100068" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:29</field>
+    <description>User Add Client Application</description>
+  </rule>
+
+  <rule id="100069" level="5">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:30</field>
+    <description>User Add Protocol</description>
+  </rule>
+
+  <rule id="100070" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:31</field>
+    <description>Reload App</description>
+  </rule>
+
+  <rule id="100071" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1002:32</field>
+    <description>Account Delete</description>
+  </rule>
+
+  <rule id="100072" level="2">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1003:1</field>
+    <description>Connection Statistics</description>
+    <group>connection,</group>
+  </rule>
+
+  <rule id="100073" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1003:2</field>
+    <description>Connection Chunks</description>
+    <group>connection,</group>
+  </rule>
+
+  <rule id="100074" level="8">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1004:1</field>
+    <description>New User Identity</description>
+  </rule>
+
+  <rule id="100075" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1004:2</field>
+    <description>User Login</description>
+  </rule>
+
+  <rule id="100076" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1004:3</field>
+    <description>Delete User Identity</description>
+  </rule>
+
+  <rule id="100077" level="4">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1004:4</field>
+    <description>User Identity Dropped: User Limit Reached</description>
+  </rule>
+
+  <rule id="100078" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1008:1</field>
+    <description>Host IOC Set Type</description>
+  </rule>
+
+  <rule id="100079" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1050</field>
+    <description>Full Host Profile</description>
+  </rule>
+
+
+<!-- File Events -->
+  <rule id="100080" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">500:1</field>
+    <description>File Event</description>
+    <group>file_event,</group>
+  </rule>
+
+  <rule id="100081" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">502:1</field>
+    <description>File Malware Event</description>
+    <group>file_malware_event,</group>
+  </rule>
+
+<!-- Other -->
+
+  <rule id="100082" level="4">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">128:4</field>
+    <description>SSH Event: Protocol Mismatch</description>
+    <group>ssh_event,</group>
+  </rule>
+
+
+<!-- DCE2 Events -->
+
+  <rule id="100201" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:2</field>
+    <description>SMB: Bad NetBIOS Session Service session type</description>
+    <group>dce2_event,</group>
+  </rule>
+
+  <rule id="100202" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:10</field>
+    <description>SMB: NetBIOS data length is less than SMB header length</description>
+    <group>dce2_event,</group>
+  </rule>
+
+  <rule id="100203" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:27</field>
+    <description>Connection-oriented DCE/RPC: Invalid major version</description>
+    <group>dce2_event,</group>
+  </rule>
+
+  <rule id="100204" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:30</field>
+    <description>Connection-oriented DCE/RPC: Fragment length is less than header size</description>
+    <group>dce2_event,</group>
+  </rule>
+
+  <rule id="100205" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:31</field>
+    <description>Connection-oriented DCE/RPC: Remaining fragment length is less than size needed</description>
+    <group>dce2_event,</group>
+  </rule>
+
+  <rule id="100206" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:32</field>
+    <description>Connection-oriented DCE/RPC: No context items specified</description>
+    <group>dce2_event,</group>
+  </rule>
+
+  <rule id="100207" level="3">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">133:33</field>
+    <description>Connection-oriented DCE/RPC: No transfer syntaxes specified</description>
+    <group>dce2_event,</group>
+  </rule> 
+
+
+
+<!-- IPS Events -->
+
+  <rule id="100301" level="6">
+    <if_sid>100000</if_sid>
+    <field name="Event.ID">1:\d+</field>
+    <description>$(Event.Description)</description>
+    <group>ips_event,</group>
+  </rule>
+
+
+
+<!-- Custom Rules -->
+
+<!-- AlienVault -->
+<!-- Connection Events Rules -->
+  <rule id="100401" level="10">
+      <if_sid>100072</if_sid>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>Connection Event from IP: $(Source.IP.Address) to an AlienVault Blacklisted IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+
+  <rule id="100402" level="10">
+      <if_sid>100072</if_sid>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>Connection Event from an AlienVault Blacklisted IP: $(Source.IP.Address) to IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+
+  <rule id="100403" level="12">
+      <if_sid>100401</if_sid>
+      <field name="Source.IP.Address">10.\d+.\d+.\d+</field>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>Connection Event from IP: $(Source.IP.Address) in 10.0.0.0/8 to an AlienVault Blacklisted IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+
+  <rule id="100404" level="12">
+      <if_sid>100402</if_sid>
+      <field name="Destination.IP.Address">10.\d+.\d+.\d+</field>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>Connection Event from an AlienVault Blacklisted IP: $(Source.IP.Address) to IP: $(Destination.IP.Address) in 10.0.0.0/8</description>
+      <group>alienVault,</group>
+  </rule>
+
+<!-- File / File Malware Events Rules -->
+  <rule id="100405" level="10">
+      <if_sid>100080</if_sid>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>File Event from IP: $(Source.IP.Address) to an AlienVault Blacklisted IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+
+  <rule id="100406" level="10">
+      <if_sid>100080</if_sid>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>File Event from an AlienVault Blacklisted IP: $(Source.IP.Address) to IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+ 
+   <rule id="100407" level="12">
+      <if_sid>100081</if_sid>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>File Malware Event from IP: $(Source.IP.Address) to an AlienVault Blacklisted IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+
+  <rule id="100408" level="12">
+      <if_sid>100081</if_sid>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-blacklist</list>
+      <description>File Malware Event from an AlienVault Blacklisted IP: $(Source.IP.Address) to IP: $(Destination.IP.Address)</description>
+      <group>alienVault,</group>
+  </rule>
+
+
+<!-- Openphish -->
+<!-- Connection Events Rules -->
+  <rule id="100501" level="10">
+      <if_sid>100072</if_sid>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-blacklist</list>
+      <description>Connection Event from IP: $(Source.IP.Address) to an Openphish Phishing IP: $(Destination.IP.Address)</description>
+      <group>openphish,</group>
+  </rule>
+
+  <rule id="100502" level="10">
+      <if_sid>100072</if_sid>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-blacklist</list>
+      <description>Connection Event from an Openphish Phishing IP: $(Source.IP.Address) to IP: $(Destination.IP.Address)</description>
+      <group>openphish,</group>
+  </rule>
+
+  <rule id="100503" level="10">
+      <if_sid>100072</if_sid>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-blacklist</list>
+      <description>Connection Event from IP: $(Source.IP.Address) to an Openphish Phishing Domain: $(Destination.Dns.Domain)</description>
+      <group>openphish,</group>
+  </rule>
+
+  <rule id="100504" level="10">
+      <if_sid>100072</if_sid>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-blacklist</list>
+      <description>Connection Event from an Openphish Phishing Domain: $(Source.Dns.Domain) to IP: $(Destination.IP.Address)</description>
+      <group>openphish,</group>
+  </rule>
+
+  <rule id="100505" level="10" frequency="100" timeframe="3600">
+      <if_matched_sid>100503</if_matched_sid>
+      <same_field>Destination.Dns.Domain</same_field>
+      <description>Multiple Events to an Openphish Phishing Domain: $(Destination.Dns.Domain)</description>
+      <info>More then 100 Events triggered to an Openphish Phishing Domain within an hour</info>
+      <group>openphish,</group>
+  </rule>
+
+</group>

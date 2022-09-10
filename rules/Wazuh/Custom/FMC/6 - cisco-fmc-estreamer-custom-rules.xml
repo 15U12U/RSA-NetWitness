@@ -1,0 +1,470 @@
+<!--
+  -  Cisco Firepower Management Center : eStreamer eNcore CLI : Custom Rules
+  -  Author : Isuru Tharanga
+  -  Rule ID Range : 100200 - 100399
+-->
+
+<!-- Custom Rules -->
+<group name="allowed_connection,cisco_fmc,">
+  <rule id="100200" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Allow$</field>
+      <description>Allowed Connection: $(Source.IP.Address) > $(Destination.IP.Address)</description>
+  </rule>
+
+  <rule id="100201" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Allow$</field>
+      <field name="Source.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Allowed Connection: [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>src_10.0.0.0/8,</group>
+  </rule>
+
+  <rule id="100202" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Allow$</field>
+      <field name="Destination.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)]</description>
+      <group>dst_10.0.0.0/8,</group>
+  </rule>
+</group>
+
+<group name="blocked_connection,cisco_fmc,">
+  <rule id="100203" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Block$</field>
+      <field name="Source.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Blocked Connection: [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>src_10.0.0.0/8,</group>
+  </rule>
+
+  <rule id="100204" level="0">
+      <if_group>connection</if_group>
+      <field name="Device.Action">^Block$</field>
+      <field name="Destination.IP.Address">10.\d+.\d+.\d+</field>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)]</description>
+      <group>dst_10.0.0.0/8,</group>
+  </rule>
+</group>
+
+<group name="threat_intel,ip_denylist,cisco_fmc,">
+
+<!-- AlienVault -->
+  <rule id="100205" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] AlienVault DENY IP</description>
+      <group>alienvault,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100206" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Allowed Connection: AlienVault DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>alienvault,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100207" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] AlienVault DENY IP</description>
+      <group>alienvault,denylist_dst_ip,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="100210" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] OpenPhish DENY IP</description>
+      <group>phishing,openphish,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100211" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Allowed Connection: OpenPhish DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>phishing,openphish,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100212" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] OpenPhish DENY IP</description>
+      <group>phishing,openphish,denylist_dst_ip,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="100215" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] PhishTank DENY IP</description>
+      <group>phishing,phishtank,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100216" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Allowed Connection: PhishTank DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>phishing,phishtank,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100217" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] PhishTank DENY IP</description>
+      <group>phishing,phishtank,denylist_dst_ip,</group>
+  </rule>
+
+<!-- FeodoTracker Abuse.ch -->
+  <rule id="100220" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/feodo-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] Feodo Tracker Botnet C2 IP</description>
+      <group>c2,botnet,feodotracker,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100221" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/feodo-ip-denylist</list>
+      <description>Allowed Connection: Feodo Tracker Botnet C2 IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>c2,botnet,feodotracker,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100222" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/feodo-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] Feodo Tracker Botnet C2 IP</description>
+      <group>c2,botnet,feodotracker,denylist_dst_ip,</group>
+  </rule>
+
+<!-- SSLBL Abuse.ch -->
+  <rule id="100225" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/sslbl-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] SSLBL Botnet C2 IP</description>
+      <group>c2,botnet,sslbl,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100226" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/sslbl-ip-denylist</list>
+      <description>Allowed Connection: SSLBL Botnet C2 IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>c2,botnet,sslbl,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100227" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/sslbl-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] SSLBL Botnet C2 IP</description>
+      <group>c2,botnet,sslbl,denylist_dst_ip,</group>
+  </rule>
+
+<!-- Sunburst -->
+  <rule id="100230" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/sunburst-ip-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] Sunburst DENY IP</description>
+      <group>sunburst,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100231" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/sunburst-ip-denylist</list>
+      <description>Allowed Connection: Sunburst DENY IP [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>sunburst,denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100232" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/sunburst-ip-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] Sunburst DENY IP</description>
+      <group>sunburst,denylist_dst_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,domain_denylist,cisco_fmc,">
+
+<!-- PhishTank -->
+  <rule id="100235" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] PhishTank DENY Domain</description>
+      <group>phishing,phishtank,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100236" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Allowed Connection: PhishTank DENY Domain [$(Source.Dns.Domain)] > $(Destination.IP.Address)</description>
+      <group>phishing,phishtank,denylist_src_domain,</group>
+  </rule>
+
+  <rule id="100237" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] PhishTank DENY Domain</description>
+      <group>phishing,phishtank,denylist_dst_domain,</group>
+  </rule>
+
+<!-- OpenPhish -->
+  <rule id="100240" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] OpenPhish DENY Domain</description>
+      <group>phishing,openphish,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100241" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Allowed Connection: OpenPhish DENY Domain [$(Source.Dns.Domain)] > $(Destination.IP.Address)</description>
+      <group>phishing,openphish,denylist_src_domain,</group>
+  </rule>
+
+  <rule id="100242" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] OpenPhish DENY Domain</description>
+      <group>phishing,openphish,denylist_dst_domain,</group>
+  </rule>
+
+<!-- Sunburst -->
+  <rule id="100245" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/sunburst-domain-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] Sunburst DENY Domain</description>
+      <group>sunburst,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100246" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.Dns.Domain" lookup="address_match_key">etc/lists/sunburst-domain-denylist</list>
+      <description>Allowed Connection: Sunburst DENY Domain [$(Source.Dns.Domain)] > $(Destination.IP.Address)</description>
+      <group>sunburst,denylist_src_domain,</group>
+  </rule>
+
+  <rule id="100247" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.Dns.Domain" lookup="address_match_key">etc/lists/sunburst-domain-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.Dns.Domain)] Sunburst DENY Domain</description>
+      <group>sunburst,denylist_dst_domain,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,url_denylist,cisco_fmc,">
+
+<!-- Openphish -->
+  <rule id="100250" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/openphish-url-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Request.URL)] OpenPhish URL</description>
+      <group>phishing,openphish,</group>
+  </rule>
+
+  <rule id="100251" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/openphish-url-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Request.URL)] OpenPhish URL</description>
+      <group>phishing,openphish,</group>
+  </rule>
+
+<!-- PhishTank -->
+  <rule id="100252" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/phishtank-url-denylist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Request.URL)] PhishTank URL</description>
+      <group>phishing,phishtank,</group>
+  </rule>
+
+  <rule id="100253" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Request.URL" lookup="address_match_key">etc/lists/phishtank-url-denylist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Request.URL)] PhishTank URL</description>
+      <group>phishing,phishtank,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,tor_exit_nodes,cisco_fmc,">
+
+<!-- TOR Exit Nodes -->
+  <rule id="100255" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] TOR Exit NODE</description>
+      <group>denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100256" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="Source.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Allowed Connection: TOR Exit NODE [$(Source.IP.Address)] > $(Destination.IP.Address)</description>
+      <group>denylist_src_ip,</group>
+  </rule>
+
+  <rule id="100257" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(Destination.IP.Address)] TOR Exit NODE</description>
+      <group>denylist_dst_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,malware_hash_denylist,cisco_fmc,">
+
+<!-- Malware Bazaar Abuse.ch -->
+  <rule id="100260" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100261" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100262" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100263" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+  <rule id="100264" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Malware Bazaar Hash</description>
+      <group>malware_bazaar,</group>
+  </rule>
+
+<!-- FireEye Red Team Tools -->
+  <rule id="100265" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100266" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100267" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100268" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+  <rule id="100269" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/fireeye-red-team-tools</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] FireEye Red Team Tools Hash</description>
+      <group>fireeye,</group>
+  </rule>
+
+<!-- Sunburst -->
+  <rule id="100270" level="10">
+      <if_group>allowed_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>Allowed Connection: $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100271" level="9">
+      <if_group>blocked_connection</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>Blocked Connection: $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100272" level="10">
+      <if_group>file</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100273" level="10">
+      <if_group>file_malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+
+  <rule id="100274" level="10">
+      <if_group>malware</if_group>
+      <list field="File.Hash" lookup="address_match_key">etc/lists/sunburst-sha256-malware-hashlist</list>
+      <description>$(Event.Description): $(Source.IP.Address) > [$(File.Hash)] Sunburst Hash</description>
+      <group>sunburst,</group>
+  </rule>
+ 
+</group>
+
+
+<group name="threat_intel,dns_request,cisco_fmc,">
+  <rule id="100275" level="11">
+      <if_group>denylist_dst_domain</if_group>
+      <field name="Destination.Port">^53$</field>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/brandix-dns-servers</list>
+      <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Brandix DNS Server</description>
+  </rule>
+
+  <rule id="100276" level="11">
+      <if_group>denylist_dst_domain</if_group>
+      <field name="Destination.Port">^53$</field>
+      <list field="Destination.IP.Address" lookup="not_address_match_key">etc/lists/brandix-dns-servers</list>
+      <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Different DNS Server</description>
+  </rule>
+
+</group>
+
+
+<group name="metasploit,">
+
+  <rule id="100280" level="12">
+      <if_group>allowed_connection</if_group>
+      <field name="Destination.Port">^4444$</field>
+      <description>Allowed Connection: $(Source.IP.Address) > $(Destination.IP.Address):[$(Destination.Port)] Metasploit Default Reverse Shell Port</description>
+  </rule>
+
+  <rule id="100281" level="11">
+      <if_group>blocked_connection</if_group>
+      <field name="Destination.Port">^4444$</field>
+      <description>Blocked Connection: $(Source.IP.Address) > $(Destination.IP.Address):[$(Destination.Port)] Metasploit Default Reverse Shell Port</description>
+  </rule>
+
+</group>
+

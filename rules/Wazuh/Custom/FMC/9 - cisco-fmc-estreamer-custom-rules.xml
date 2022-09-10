@@ -1,0 +1,279 @@
+<!--
+  -  Cisco Firepower Management Center : eStreamer eNcore CLI : Custom Rules
+  -  Author : Isuru Tharanga
+  -  Rule ID Range : 100200 - 100399
+-->
+
+<!-- Custom Rules -->
+
+<!-- Threat Intelligence Events -->
+
+<group name="threat_intel,ip_denylist,cisco_fmc,">
+
+<!-- AlienVault -->
+
+  <rule id="100215" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] AlienVault DENY IP</description>
+      <group>connection,security_intelligence,alienvault,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100216" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/alienvault-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] AlienVault DENY IP</description>
+      <group>connection,security_intelligence,alienvault,denylist_src_ip,</group>
+  </rule>
+
+<!-- OpenPhish -->
+
+  <rule id="100220" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] OpenPhish IP</description>
+      <group>connection,security_intelligence,phishing,openphish,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100221" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/openphish-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] OpenPhish IP</description>
+      <group>connection,security_intelligence,phishing,openphish,denylist_src_ip,</group>
+  </rule>
+
+<!-- PhishTank -->
+
+  <rule id="100235" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] PhishTank IP</description>
+      <group>connection,security_intelligence,phishing,phishtank,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100236" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/phishtank-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] PhishTank IP</description>
+      <group>connection,security_intelligence,phishing,phishtank,denylist_src_ip,</group>
+  </rule>
+
+<!-- FeodoTracker Abuse.ch -->
+
+  <rule id="100240" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/feodo-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] Feodo Tracker Botnet C2 IP</description>
+      <group>connection,security_intelligence,command_and_control,botnet,feodotracker,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100241" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/feodo-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] Feodo Tracker Botnet C2 IP</description>
+      <group>connection,security_intelligence,command_and_control,botnet,feodotracker,denylist_src_ip,</group>
+  </rule>
+
+<!-- SSLBL Abuse.ch -->
+
+  <rule id="100255" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/sslbl-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] SSLBL Botnet C2 IP</description>
+      <group>connection,security_intelligence,command_and_control,botnet,sslbl,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100256" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/sslbl-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] SSLBL Botnet C2 IP</description>
+      <group>connection,security_intelligence,command_and_control,botnet,sslbl,denylist_src_ip,</group>
+  </rule>
+
+  <!-- URLhaus Abuse.ch -->
+
+  <rule id="100260" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/urlhaus-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] URLhaus Malware IP</description>
+      <group>connection,security_intelligence,malware,urlhaus,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100261" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/urlhaus-ip-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] URLhaus Malware IP</description>
+      <group>connection,security_intelligence,malware,urlhaus,denylist_src_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,domain_denylist,cisco_fmc,">
+
+<!-- PhishTank -->
+
+  <rule id="100275" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_dns_domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_dns_domain)] PhishTank Domain</description>
+      <group>connection,security_intelligence,phishing,phishtank,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100276" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_dns_domain" lookup="address_match_key">etc/lists/phishtank-domain-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_dns_domain)] PhishTank Domain</description>
+      <group>connection,security_intelligence,phishing,phishtank,denylist_src_domain,</group>
+  </rule>
+
+<!-- OpenPhish -->
+
+  <rule id="100280" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_dns_domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_dns_domain)] OpenPhish Domain</description>
+      <group>connection,security_intelligence,phishing,openphish,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100281" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_dns_domain" lookup="address_match_key">etc/lists/openphish-domain-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_dns_domain)] OpenPhish Domain</description>
+      <group>connection,security_intelligence,phishing,openphish,denylist_src_domain,</group>
+  </rule>
+
+  <!-- URLhaus Abuse.ch -->
+
+  <rule id="100290" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_dns_domain" lookup="address_match_key">etc/lists/urlhaus-domain-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_dns_domain)] URLhaus Malware Domain</description>
+      <group>connection,security_intelligence,malware,urlhaus,denylist_dst_domain,</group>
+  </rule>
+
+  <rule id="100291" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_dns_domain" lookup="address_match_key">etc/lists/urlhaus-domain-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_dns_domain)] URLhaus Malware Domain</description>
+      <group>connection,security_intelligence,malware,urlhaus,denylist_src_domain,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,url_denylist,cisco_fmc,">
+
+<!-- Openphish -->
+
+  <rule id="100300" level="10">
+      <if_sid>100120</if_sid>
+      <list field="request_url" lookup="address_match_key">etc/lists/openphish-url-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(request_url)] OpenPhish URL</description>
+      <group>connection,security_intelligence,phishing,openphish,</group>
+  </rule>
+
+<!-- PhishTank -->
+
+  <rule id="100312" level="10">
+      <if_sid>100120</if_sid>
+      <list field="request_url" lookup="address_match_key">etc/lists/phishtank-url-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(request_url)] PhishTank URL</description>
+      <group>connection,security_intelligence,phishing,phishtank,</group>
+  </rule>
+
+<!-- URLhaus Abuse.ch -->
+
+  <rule id="100315" level="10">
+      <if_sid>100120</if_sid>
+      <list field="request_url" lookup="address_match_key">etc/lists/urlhaus-url-denylist</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(request_url)] URLhaus Malware URL</description>
+      <group>connection,security_intelligence,malware,urlhaus,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,tor_exit_node,cisco_fmc,">
+
+ TOR Exit Nodes
+
+  <rule id="100325" level="10">
+      <if_sid>100120</if_sid>
+      <list field="destination_ip_address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(destination_ip_address)] TOR Exit NODE</description>
+      <group>connection,security_intelligence,denylist_dst_ip,</group>
+  </rule>
+
+  <rule id="100326" level="10">
+      <if_sid>100120</if_sid>
+      <list field="source_ip_address" lookup="address_match_key">etc/lists/tor-exit-nodes</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(source_ip_address)] TOR Exit NODE</description>
+      <group>connection,security_intelligence,denylist_src_ip,</group>
+  </rule>
+
+</group>
+
+
+
+<group name="threat_intel,malware_hash,cisco_fmc,">
+
+<!-- Malware Bazaar Abuse.ch -->
+
+  <rule id="100330" level="10">
+      <if_sid>100120</if_sid>
+      <list field="file_hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): [$(file_hash)] Malware Bazaar Hash</description>
+      <group>connection,security_intelligence,malware_bazaar,</group>
+  </rule>
+
+  <rule id="100332" level="10">
+      <if_group>file</if_group>
+      <list field="file_hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>File: $(Device.Action): [$(file_hash)] Malware Bazaar Hash</description>
+      <group>file,malware_bazaar,</group>
+  </rule>
+
+  <rule id="100333" level="10">
+      <if_group>file_malware</if_group>
+      <list field="file_hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>File Malware: $(Device.Action): [$(file_hash)] Malware Bazaar Hash</description>
+      <group>file_malware,malware_bazaar,</group>
+  </rule>
+
+  <rule id="100334" level="10">
+      <if_group>fireamp_malware</if_group>
+      <list field="file_hash" lookup="address_match_key">etc/lists/bazaar-sha256-hash-malware</list>
+      <description>FireAMP: [$(file_hash)] Malware Bazaar Hash</description>
+      <group>fireamp_malware,malware_bazaar,</group>
+  </rule>
+ 
+</group>
+
+
+
+<!-- Metasploit Events -->
+
+<group name="metasploit,cisco_fmc,">
+
+<!-- Metasploit Default Reverse Shell Port -->
+
+  <rule id="100370" level="12">
+      <if_sid>100120</if_sid>
+      <field name="destination_port">^4444$</field>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): $(destination_ip_address):[$(destination_port)] Metasploit Default Reverse Shell Port</description>
+      <group>connection,security_intelligence,metasploit_dst_port,</group>
+  </rule>
+
+  <rule id="100371" level="12">
+      <if_sid>100120</if_sid>
+      <field name="source_port">^4444$</field>
+      <description>Security Intelligence: $(device_custom_string_5): $(event_reason): $(source_ip_address):[$(source_port)] Metasploit Default Reverse Shell Port</description>
+      <group>connection,security_intelligence,metasploit_src_port,</group>
+  </rule>
+
+</group>
+

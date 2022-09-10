@@ -1,0 +1,28 @@
+<!--
+  -  Cisco FMC : NXLog : Correlation Rules
+  -  Author : Isuru Tharanga
+  -  Rule ID Range : 100300 - 100499
+-->
+
+<!-- Custom Rules -->
+<group name="correlation,">
+  <rule id="100300" level="11" frequency="2" timeframe="120">
+      <if_matched_group>denylist_dst_ip</if_matched_group>
+      <same_field>^DestinationIp$|^Destination.IP.Address$</same_field>
+      <description>Connection Event: DENYLIST IP</description>
+  </rule>
+
+  <rule id="100301" level="11" frequency="2" timeframe="120">
+      <if_matched_group>denylist_dst_domain</if_matched_group>
+      <same_field>^QueryName$|^Destination.Dns.Domain$</same_field>
+      <description>DNS Event: DENYLIST DOMAIN</description>
+  </rule>
+
+  <rule id="100302" level="11" frequency="2" timeframe="120">
+      <if_matched_group>metasploit</if_matched_group>
+      <same_field>^DestinationPort$|^Destination.Port$</same_field>
+      <description>Connection Event: DENYLIST IP</description>
+  </rule>
+
+</group>
+

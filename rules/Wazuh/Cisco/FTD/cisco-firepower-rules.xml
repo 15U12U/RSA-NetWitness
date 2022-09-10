@@ -1,0 +1,36 @@
+<!--
+  -  Cisco Firepower Threat Defense - Ruleset
+  -  Author: Isuru Tharanga
+-->
+
+<!-- Cisco Firepower Threat Defense Rukes Identifier -->
+<group name="syslog,cisco,cisco-ftd,">
+  <rule id="110000" level="0">
+    <decoded_as>cisco-ftd</decoded_as>
+    <description>Grouping of Cisco-FTD Rules</description>
+  </rule>
+
+  <rule id="110001" level="6">
+    <if_sid>110000</if_sid>
+    <id>6-430004</id>
+    <description>File Event</description>
+  </rule>
+
+  <rule id="110002" level="12">
+    <if_sid>110000</if_sid>
+    <id>6-430005</id>
+    <description>File Malware Event</description>
+  </rule>
+
+  <rule id="110003" level="14">
+      <if_sid>110000</if_sid>
+      <list field="dstip" lookup="address_match_key">etc/lists/blacklist-alienvault</list>
+      <description>Destination IP: $(dstip) in AlienVault Blacklist</description>
+  </rule>
+
+  <rule id="110004" level="14">
+      <if_sid>110000</if_sid>
+      <list field="srcip" lookup="address_match_key">etc/lists/blacklist-alienvault</list>
+      <description>Source IP: $(srcip) in AlienVault Blacklist</description>
+  </rule>
+</group>
