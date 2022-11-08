@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Security</name><description/><type>Widget</type><dashboard id="374673057"><columns>0</columns></dashboard><Widgets><widget pos="0">
+<name>Checkpoint: Top Anti-Malware Events</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|11|305.33|599.67|894,1,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652704278539">
+<Name>Checkpoint: Top Anti-Malware Events</Name>
+<Description>Checkpoint: Top Anti-Malware Events</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088105" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "Anti Malware"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667903579</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="1">
+<name>Checkpoint: Top Anti-Malware Events</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652703633614">
+<Name>Checkpoint: Top Anti-Malware Events with Source IP</Name>
+<Description>Checkpoint: Top Anti-Malware Events with Source IP</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088102" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "Anti Malware"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName,srcIpAddr</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,srcIpAddr,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667903579</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="2">
+<name>Checkpoint: Top Detected Attacks</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652714421424">
+<Name>Checkpoint: Top Detected Attacks</Name>
+<Description>Checkpoint: Top Detected Attacks</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088118" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "SmartDefense"  AND  fwAction NOT IN ("Drop","Reject","Prevent")</SingleEvtConstr>
+<GroupByAttr>attackName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>attackName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667904479</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="3">
+<name>Checkpoint: Top Anti-Virus Events</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|74|1098.33|2122.67|3147,1,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652704245611">
+<Name>Checkpoint: Top Anti-Virus Events</Name>
+<Description>Checkpoint: Top Anti-Virus Events</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088104" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "New Anti Virus"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667903579</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="4">
+<name>Checkpoint: Top Anti-Virus Events with Source IP</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652704220486">
+<Name>Checkpoint: Top Anti-Virus Events with Source IP</Name>
+<Description>Checkpoint: Top Anti-Virus Events with Source IP</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088103" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "New Anti Virus"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName,srcIpAddr</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,srcIpAddr,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667903579</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="5">
+<name>Checkpoint: Details of Top Detected Attacks</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652714764769">
+<Name>Checkpoint: Details of Top Detected Attacks</Name>
+<Description>Checkpoint: Details of Top Detected Attacks</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088120" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "SmartDefense"  AND  fwAction NOT IN ("Drop","Reject","Prevent")</SingleEvtConstr>
+<GroupByAttr>attackName,attackInfo,ipsConfidence,srcIpAddr,vulnCVEId</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>attackName,attackInfo,ipsConfidence,srcIpAddr,vulnCVEId,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667904479</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="6">
+<name>Checkpoint: Top Prevented Attacks</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652714382667">
+<Name>Checkpoint: Top Prevented Attacks</Name>
+<Description>Checkpoint: Top Prevented Attacks</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088131" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "SmartDefense"  AND  fwAction IN ("Drop","Reject","Prevent")  AND  attackName IS NOT NULL</SingleEvtConstr>
+<GroupByAttr>attackName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>attackName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667904479</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="7">
+<name>Checkpoint: Details of Top Prevented Attacks</name>
+<description/>
+<horizontalCell>6</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1,COUNT(Matched Events):1:0|6|261.33|516.67|772:0,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652714736915">
+<Name>Checkpoint: Details of Top Prevented Attacks</Name>
+<Description>Checkpoint: Details of Top Prevented Attacks</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088132" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "SmartDefense"  AND  fwAction IN ("Drop","Reject","Prevent")  AND  attackName IS NOT NULL</SingleEvtConstr>
+<GroupByAttr>attackName,attackInfo,ipsConfidence,srcIpAddr,vulnCVEId</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>attackName,attackInfo,ipsConfidence,srcIpAddr,vulnCVEId,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667904479</Low>
+<High>1667905378</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget></Widgets></group></DashboardConfigs>

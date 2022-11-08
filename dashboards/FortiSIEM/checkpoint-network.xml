@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Network</name><description/><type>Widget</type><dashboard id="374673058"><columns>0</columns></dashboard><Widgets><widget pos="0">
+<name>Checkpoint: Top Application Control Events</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|64|88360.67|176657.33|264954,1,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652704976328">
+<Name>Checkpoint: Top Application Control Events</Name>
+<Description>Checkpoint: Top Application Control Events</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088106" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "Application Control"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667903707</Low>
+<High>1667905506</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="1">
+<name>Checkpoint: Top Application Control Events with Source User and Source IP</name>
+<description/>
+<horizontalCell>6</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652705350060">
+<Name>Checkpoint: Top Application Control Events with Source User and Source IP</Name>
+<Description>Checkpoint: Top Application Control Events with Source User and Source IP</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088108" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "Application Control"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName,srcUser,srcIpAddr</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,srcUser,srcIpAddr,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667903707</Low>
+<High>1667905506</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="2">
+<name>Checkpoint: URL Filtering: Top Applications</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|78|6684|13290|19896,1,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652712223582">
+<Name>Checkpoint: URL Filtering: Top Applications</Name>
+<Description>Checkpoint: URL Filtering: Top Applications</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088113" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "URL Filtering"  AND  appName IS NOT NULL</SingleEvtConstr>
+<GroupByAttr>appName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>appName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667901907</Low>
+<High>1667905506</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="3">
+<name>Checkpoint: URL Filtering: Top Allowed URLs</name>
+<description/>
+<horizontalCell>6</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652713082856">
+<Name>Checkpoint: URL Filtering: Top Allowed URLs</Name>
+<Description>Checkpoint: URL Filtering: Top Allowed URLs</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088114" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "URL Filtering"  AND  httpFullRequest IS NOT NULL  AND  fwAction IN ("Allow","Accept")</SingleEvtConstr>
+<GroupByAttr>httpFullRequest,srcUser,srcIpAddr,appName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>httpFullRequest,srcUser,srcIpAddr,appName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667901907</Low>
+<High>1667905506</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="4">
+<name>Checkpoint: URL Filtering: Top Event Types</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:1;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652713710841">
+<Name>Checkpoint: URL Filtering: Top Event Types</Name>
+<Description>Checkpoint: URL Filtering: Top Event Types</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088116" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "URL Filtering"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667901907</Low>
+<High>1667905506</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="5">
+<name>Checkpoint: URL Filtering: Top Blocked URLs</name>
+<description/>
+<horizontalCell>6</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652713275995">
+<Name>Checkpoint: URL Filtering: Top Blocked URLs</Name>
+<Description>Checkpoint: URL Filtering: Top Blocked URLs</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088115" name="">
+<SingleEvtConstr>parserName = "CheckpointCEFParser"  AND  product = "URL Filtering"  AND  httpFullRequest IS NOT NULL  AND  fwAction = "Block"</SingleEvtConstr>
+<GroupByAttr>httpFullRequest,srcUser,srcIpAddr,appName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>httpFullRequest,srcUser,srcIpAddr,appName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667901907</Low>
+<High>1667905506</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget></Widgets></group></DashboardConfigs>
