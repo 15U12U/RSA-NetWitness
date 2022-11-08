@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Microsoft AD</name><description/><type>Widget</type><dashboard id="374673060"><columns>0</columns></dashboard><Widgets><widget pos="0">
+<name>AD: Top Successful Domain User Authentications</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652873167155">
+<Name>AD: Top Successful Domain User Authentications</Name>
+<Description>AD: Top Successful Domain User Authentications</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088140" name="">
+<SingleEvtConstr>parserName = "WinOSWmiParser"  AND  subtype = "Security"  AND  winEventId = "4768"  AND  winKerbFailCode = "0x0"  AND  user IS NOT NULL  AND  user NOT REGEXP (".*\\$$")</SingleEvtConstr>
+<GroupByAttr>user,srcIpAddr</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>user,srcIpAddr,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902330</Low>
+<High>1667905929</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="1">
+<name>AD: Top Failed Domain User Authentications</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652873444255">
+<Name>AD: Top Failed Domain User Authentications</Name>
+<Description>AD: Top Failed Domain User Authentications</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088141" name="">
+<SingleEvtConstr>parserName = "WinOSWmiParser"  AND  subtype = "Security"  AND  winEventId = "4768"  AND  winKerbFailCode != "0x0"  AND  user IS NOT NULL</SingleEvtConstr>
+<GroupByAttr>user,srcIpAddr</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>user,srcIpAddr,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902330</Low>
+<High>1667905929</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="2">
+<name>AD: Initial login to a Domain Computer</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652893016024">
+<Name>AD: Initial login to a Domain Computer</Name>
+<Description>AD: Initial login to a Domain Computer</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="389539012" name="">
+<SingleEvtConstr>phEventCategory = 1  AND  eventType = "Initial_Login_to_a_Domain_Computer"</SingleEvtConstr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>incidentFirstSeen,user,srcIpAddr</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667905030</Low>
+<High>1667905929</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="3">
+<name>AD: Admin User: Initial login to a Domain Computer</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652893016024__DUP_1_1653281530195">
+<Name>AD: Admin User: Initial login to a Domain Computer</Name>
+<Description>AD: Initial login to a Domain Computer</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="389539013" name="">
+<SingleEvtConstr>phEventCategory = 1  AND  eventType = "Admin_User_Initial_Login_to_a_Domain_Computer"</SingleEvtConstr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>incidentFirstSeen,user,srcIpAddr</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667905030</Low>
+<High>1667905929</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget></Widgets></group></DashboardConfigs>

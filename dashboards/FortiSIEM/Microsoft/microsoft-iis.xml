@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Microsoft IIS</name><description/><type>Widget</type><dashboard id="374673059"><columns>0</columns></dashboard><Widgets><widget pos="0">
+<name>IIS: Top Web Server Instances by Connection Count</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1:0:0|194|320.33|446.67|573</displaySettings>
+<dataParam>twIndex:4;dtIndex:0;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652771214910">
+<Name>IIS: Top Web Server Instances by Connection Count</Name>
+<Description>IIS: Top Web Server Instances by Connection Count</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088125" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"</SingleEvtConstr>
+<GroupByAttr>srvInstName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>srvInstName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="1">
+<name>IIS: Top Event Types</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1:0:0|1|277|553|829</displaySettings>
+<dataParam>twIndex:4;dtIndex:0;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652770722558">
+<Name>IIS: Top Event Types</Name>
+<Description>IIS: Top Event Types</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088123" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="2">
+<name>IIS: Top HTTP Status Codes</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|1|232.33|463.67|695,1,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652770916903">
+<Name>IIS: Top HTTP Status Codes</Name>
+<Description>IIS: Top HTTP Status Codes</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088124" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"</SingleEvtConstr>
+<GroupByAttr>httpStatusCode</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>httpStatusCode,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="3">
+<name>IIS: Top HTTP Methods</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:1;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652771373125">
+<Name>IIS: Top HTTP Methods</Name>
+<Description>IIS: Top HTTP Methods</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088126" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"</SingleEvtConstr>
+<GroupByAttr>httpMethod</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>httpMethod,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="4">
+<name>IIS: Top User-Agents</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652773259193">
+<Name>IIS: Top User-Agents</Name>
+<Description>IIS: Top User-Agents</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088130" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"  AND  httpUserAgent IS NOT NULL</SingleEvtConstr>
+<GroupByAttr>httpUserAgent</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>httpUserAgent,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="5">
+<name>IIS: Top Connections in Detailed View</name>
+<description/>
+<horizontalCell>9</horizontalCell>
+<verticalCell>3</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1,COUNT(Matched Events):1:0|9|88.67|168.33|248:0,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:4;numResults:15;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652773208124">
+<Name>IIS: Top Connections in Detailed View</Name>
+<Description>IIS: Top Connections in Detailed View</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088127" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"</SingleEvtConstr>
+<GroupByAttr>srcIpAddr,srcUser,httpMethod,srvInstName,uriStem,httpStatusCode,httpUserAgent</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>srcIpAddr,srcUser,httpMethod,srvInstName,uriStem,httpStatusCode,httpUserAgent,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="6">
+<name>IIS: Top Users by Connection Count</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|4|54|104|154,1,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1652773761279">
+<Name>IIS: Top Users by Connection Count</Name>
+<Description>IIS: Top Users by Connection Count</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="385088129" name="">
+<SingleEvtConstr>parserName = "AOWUA_IISParser"  AND  srcUser IS NOT NULL</SingleEvtConstr>
+<GroupByAttr>srcUser</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>srcUser,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667902453</Low>
+<High>1667906052</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget></Widgets></group></DashboardConfigs>
