@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Microsoft SQL</name><description/><type>Widget</type><dashboard id="374673063"><columns>0</columns></dashboard><Widgets><widget pos="0">
+<name>MSSQL: Successful User Logins - SQL Authentication</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1,COUNT(Matched Events):1:0|3|14|25|36:0,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1663233647713__DUP_1_1663234714719">
+<Name>MSSQL: Successful User Logins - SQL Authentication</Name>
+<Description>MSSQL: Successful User Logins - SQL Authentication</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="644446389" name="">
+<SingleEvtConstr>parserName = "WinOSWmiParser"  AND  subtype = "Application"  AND  eventSource = "MSSQLSERVER"  AND  winEventId IN ("18454","18455")</SingleEvtConstr>
+<GroupByAttr>user,srcIpAddr,srcName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>user,srcIpAddr,srcName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667905468</Low>
+<High>1667906067</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="1">
+<name>MSSQL: Successful User Logins - Windows Authentication</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1,COUNT(Matched Events):1:0|11|115|219|323:0,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1663233647713">
+<Name>MSSQL: Successful User Logins - Windows Authentication</Name>
+<Description>MSSQL: Successful User Logins - Windows Authentication</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="644446390" name="">
+<SingleEvtConstr>parserName = "WinOSWmiParser"  AND  subtype = "Application"  AND  eventSource = "MSSQLSERVER"  AND  winEventId = "18453"</SingleEvtConstr>
+<GroupByAttr>user,srcIpAddr,srcName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>user,srcIpAddr,srcName,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667905468</Low>
+<High>1667906067</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="2">
+<name>MSSQL: Failed User Logins</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>1,COUNT(Matched Events):1:0|1|113.33|225.67|338:0,0</displaySettings>
+<dataParam>twIndex:4;dtIndex:4;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1663233873660">
+<Name>MSSQL: Failed User Logins</Name>
+<Description>MSSQL: Failed User Logins</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="644446380" name="">
+<SingleEvtConstr>parserName = "WinOSWmiParser"  AND  subtype = "Application"  AND  eventSource = "MSSQLSERVER"  AND  eventType = "Win-App-MSSQLSERVER-18456"</SingleEvtConstr>
+<GroupByAttr>user,msg</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>user,msg,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667905468</Low>
+<High>1667906067</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="3">
+<name>MSSQL: JDBC: Top DDL Activity</name>
+<description/>
+<horizontalCell>3</horizontalCell>
+<verticalCell>2</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings>0|1|18|35|52,1,0</displaySettings>
+<dataParam>twIndex:7;dtIndex:2;numResults:10;timeInterval:300000;bizSvcId:0;itwIndex:4;trendInterval:auto;chartSet:0</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1664350099642">
+<Name>MSSQL: JDBC: Top DDL Activity</Name>
+<Description>MSSQL: JDBC: Top DDL Activity</Description>
+<CustomerScope groupByEachCustomer="false">
+<Include all="true"/>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="644446392" name="">
+<SingleEvtConstr>parserName = "MSSQLParser"  AND  extEventRecvProto = "JDBC"  AND  eventType != "MSSQL_JDBC_PULL_STAT"</SingleEvtConstr>
+<GroupByAttr>eventType,eventName</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>eventType,eventName,COUNT(*) "Count"</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="0">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1667301268</Low>
+<High>1667906067</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget></Widgets></group></DashboardConfigs>
