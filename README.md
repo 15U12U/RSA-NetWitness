@@ -2,3 +2,4 @@
 
 - Parsers
 - Rules
+- Dashboards
