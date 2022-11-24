@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Apache Web Access</name><description/><type>Widget</type><dashboard id="917427902"><columns>0</columns></dashboard><Widgets><widget pos="0">
-<name>MITESP: Apache: Top Source IP Locations</name>
+<name>Apache: Top Source IP Locations</name>
 <description/>
 <horizontalCell>3</horizontalCell>
 <verticalCell>2</verticalCell>
@@ -10,8 +10,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279717741">
-<Name>MITESP: Apache: Top Source IPs and Location</Name>
-<Description>MITESP: Apache: Top Source IPs and Location - 02:19:59 PM Nov 24 2022</Description>
+<Name>Apache: Top Source IPs and Location</Name>
+<Description>Apache: Top Source IPs and Location</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
@@ -36,7 +36,7 @@
 <TrendInterval>auto</TrendInterval>
 <TimeZone/>
 </Report></widget><widget pos="1">
-<name>MITESP: Apache: Top HTTP Methods</name>
+<name>Apache: Top HTTP Methods</name>
 <description/>
 <horizontalCell>3</horizontalCell>
 <verticalCell>2</verticalCell>
@@ -47,8 +47,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279461209">
-<Name>MITESP: Apache: Top HTTP Methods</Name>
-<Description>MITESP: Apache: Top HTTP Methods - 02:15:42 PM Nov 24 2022</Description>
+<Name>Apache: Top HTTP Methods</Name>
+<Description>Apache: Top HTTP Methods</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
@@ -73,7 +73,7 @@
 <TrendInterval>auto</TrendInterval>
 <TimeZone/>
 </Report></widget><widget pos="2">
-<name>MITESP: Apache: Top HTTP Status Codes</name>
+<name>Apache: Top HTTP Status Codes</name>
 <description/>
 <horizontalCell>3</horizontalCell>
 <verticalCell>2</verticalCell>
@@ -84,8 +84,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279170827">
-<Name>MITESP: Apache: Top HTTP Status Codes</Name>
-<Description>MITESP: Apache: Top HTTP Status Codes - 02:10:52 PM Nov 24 2022</Description>
+<Name>Apache: Top HTTP Status Codes</Name>
+<Description>Apache: Top HTTP Status Codes</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
@@ -110,7 +110,7 @@
 <TrendInterval>auto</TrendInterval>
 <TimeZone/>
 </Report></widget><widget pos="3">
-<name>MITESP: Apache: Top Source IPs and Location</name>
+<name>Apache: Top Source IPs and Location</name>
 <description/>
 <horizontalCell>0</horizontalCell>
 <verticalCell>0</verticalCell>
@@ -121,8 +121,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279717741">
-<Name>MITESP: Apache: Top Source IPs and Location</Name>
-<Description>MITESP: Apache: Top Source IPs and Location - 02:19:59 PM Nov 24 2022</Description>
+<Name>Apache: Top Source IPs and Location</Name>
+<Description>Apache: Top Source IPs and Location</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
@@ -147,7 +147,7 @@
 <TrendInterval>auto</TrendInterval>
 <TimeZone/>
 </Report></widget><widget pos="4">
-<name>MITESP: Apache: Top User-Agents</name>
+<name>Apache: Top User-Agents</name>
 <description/>
 <horizontalCell>0</horizontalCell>
 <verticalCell>0</verticalCell>
@@ -158,8 +158,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279407335">
-<Name>MITESP: Apache: Top User-Agents</Name>
-<Description>MITESP: Apache: Top User-Agents - 02:14:48 PM Nov 24 2022</Description>
+<Name>Apache: Top User-Agents</Name>
+<Description>Apache: Top User-Agents</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
@@ -184,7 +184,7 @@
 <TrendInterval>auto</TrendInterval>
 <TimeZone/>
 </Report></widget><widget pos="5">
-<name>MITESP: Apache: Top Event Types</name>
+<name>Apache: Top Event Types</name>
 <description/>
 <horizontalCell>3</horizontalCell>
 <verticalCell>2</verticalCell>
@@ -195,8 +195,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279576144">
-<Name>MITESP: Apache: Top Event Types</Name>
-<Description>MITESP: Apache: Top Event Types - 02:17:37 PM Nov 24 2022</Description>
+<Name>Apache: Top Event Types</Name>
+<Description>Apache: Top Event Types</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
@@ -221,7 +221,7 @@
 <TrendInterval>auto</TrendInterval>
 <TimeZone/>
 </Report></widget><widget pos="6">
-<name>MITESP: Apache: Top Connections - Detailed View</name>
+<name>Apache: Top Connections - Detailed View</name>
 <description/>
 <horizontalCell>9</horizontalCell>
 <verticalCell>2</verticalCell>
@@ -232,8 +232,8 @@
 <dataProviderType>Report</dataProviderType>
 <dataProviderNaturalId/>
 <Report naturalId="PH_SYS_Report_1669279950644">
-<Name>MITESP: Apache: Top Connections - Detailed View</Name>
-<Description>MITESP: Apache: Top Connections - Detailed View - 02:23:52 PM Nov 24 2022</Description>
+<Name>Apache: Top Connections - Detailed View</Name>
+<Description>Apache: Top Connections - Detailed View</Description>
 <CustomerScope groupByEachCustomer="true">
 <Include>2005</Include>
 <Exclude/>
