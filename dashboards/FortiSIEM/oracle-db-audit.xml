@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DashboardConfigs><group><name>Oracle DB</name><description/><type>Widget</type><dashboard id="917427901"><columns>0</columns></dashboard><Widgets><widget pos="0">
+<name>OracleDB: JDBC: User Log on</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1669277004539">
+<Name>OracleDB: JDBC: User Log on</Name>
+<Description>OracleDB: JDBC: User Log on</Description>
+<CustomerScope groupByEachCustomer="true">
+<Include>2005</Include>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="836003617" name="">
+<SingleEvtConstr>parserName = "OracleDBParser"  AND  eventType = "ORADB_Logon_Success"</SingleEvtConstr>
+<GroupByAttr>srcName,instanceName,user</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>srcName,instanceName,user,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="2005">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1669194702</Low>
+<High>1669281101</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="1">
+<name>OracleDB: JDBC: User Log off</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1669276813360">
+<Name>OracleDB: JDBC: User Log off</Name>
+<Description>OracleDB: JDBC: User Log off</Description>
+<CustomerScope groupByEachCustomer="true">
+<Include>2005</Include>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="836003615" name="">
+<SingleEvtConstr>parserName = "OracleDBParser"  AND  eventType = "ORADB_Logoff"</SingleEvtConstr>
+<GroupByAttr>srcName,instanceName,user</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>srcName,instanceName,user,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="2005">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1669194702</Low>
+<High>1669281101</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget><widget pos="2">
+<name>OracleDB: JDBC: User Log off by Cleanup</name>
+<description/>
+<horizontalCell>0</horizontalCell>
+<verticalCell>0</verticalCell>
+<posX>0</posX>
+<posY>0</posY>
+<displaySettings/>
+<dataParam>twIndex:4;dtIndex:4;barType:overlaid;numResults:10;timeInterval:0;bizSvcId:0;</dataParam>
+<dataProviderType>Report</dataProviderType>
+<dataProviderNaturalId/>
+<Report naturalId="PH_SYS_Report_1669277313100">
+<Name>OracleDB: JDBC: User Log off by Cleanup</Name>
+<Description>OracleDB: JDBC: User Log off by Cleanup</Description>
+<CustomerScope groupByEachCustomer="true">
+<Include>2005</Include>
+<Exclude/>
+</CustomerScope>
+<PatternClause>
+<SubPattern id="836003616" name="">
+<SingleEvtConstr>parserName = "OracleDBParser"  AND  eventType = "ORADB_Logoff_by_cleanup"</SingleEvtConstr>
+<GroupByAttr>srcName,instanceName,user</GroupByAttr>
+</SubPattern>
+</PatternClause>
+<SelectClause>
+<AttrList>srcName,instanceName,user,COUNT(*)</AttrList>
+</SelectClause>
+<userRoles>
+<roles custId="2005">911751</roles>
+</userRoles>
+<SyncOrgs/>
+<ReportInterval>
+<Low>1669194702</Low>
+<High>1669281101</High>
+</ReportInterval>
+<TrendInterval>auto</TrendInterval>
+<TimeZone/>
+</Report></widget></Widgets></group></DashboardConfigs>
