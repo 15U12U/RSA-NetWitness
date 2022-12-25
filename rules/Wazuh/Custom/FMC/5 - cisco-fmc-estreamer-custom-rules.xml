@@ -424,14 +424,14 @@
   <rule id="100901" level="11">
       <if_group>denylist_dst_domain</if_group>
       <field name="Destination.Port">^53$</field>
-      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/brandix-dns-servers</list>
-      <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Brandix DNS Server</description>
+      <list field="Destination.IP.Address" lookup="address_match_key">etc/lists/allowed-dns-servers</list>
+      <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Allowed DNS Server</description>
   </rule>
 
   <rule id="100902" level="11">
       <if_group>denylist_dst_domain</if_group>
       <field name="Destination.Port">^53$</field>
-      <list field="Destination.IP.Address" lookup="not_address_match_key">etc/lists/brandix-dns-servers</list>
+      <list field="Destination.IP.Address" lookup="not_address_match_key">etc/lists/allowed-dns-servers</list>
       <description>DENYLISTED Domain [$(Destination.Dns.Domain)] Request: $(Source.IP.Address) > [$(Destination.IP.Address)] Different DNS Server</description>
   </rule>
 
