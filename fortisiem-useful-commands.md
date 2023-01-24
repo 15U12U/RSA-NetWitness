@@ -79,11 +79,11 @@ snmpwalk -c public - v 2c 1.1.1.1
 ```
 ### SNMPv3
 
-| Parameter     | Value                                  |
-| :------------ | :------------------------------------- |
-| securityLevel | noAuthNoPriv \| authNoPriv \| authPriv |
-| authProtocol  | MD5 \| SHA                             |
-| privProtocol  | AES \| DES                             |
+| Parameter     | Value                                |
+| :------------ | :----------------------------------- |
+| securityLevel | noAuthNoPriv / authNoPriv / authPriv |
+| authProtocol  | MD5 / SHA                            |
+| privProtocol  | AES / DES                            |
 
 ```bash
 snmpwalk -v3 -u <user> -l <securityLevel> -a <authProtocol> -A '<authKey>' -x <privProtocol> -X '<privKey>'
