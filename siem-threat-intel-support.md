@@ -1,9 +1,9 @@
 # SIEM Threat Intel Support
 
-| Threat Feed              	| FortiSIEM | Wazuh | Type                       | URL                                                                      |
-|---------------------------|:---------:|:-----:|:--------------------------:|--------------------------------------------------------------------------|
-| Cisco Talos              	|     ✔    |   ✔   	| IP                        | http://www.talosintelligence.com/documents/ip-blacklist                  |
-| AlienVault OTX           	|     ✔    |   ✔   	| IP/Domain/URL<br>IP<br>IP | https://otx.alienvault.com/taxii/discovery<br>https://reputation.alienvault.com/reputation.data<br>https://reputation.alienvault.com/reputation.generic |
+| Threat Feed              	| FortiSIEM          | Wazuh              | Type                      | URL                                                               |
+| :------------------------ | :----------------: | :----------------: |:-------------------------:| :---------------------------------------------------------------- |
+| Cisco Talos              	| :heavy_check_mark: | :heavy_check_mark:	| IP                        | http://www.talosintelligence.com/documents/ip-blacklist           |
+| AlienVault OTX           	| :heavy_check_mark: | :heavy_check_mark:	| IP/Domain/URL<br>IP<br>IP | https://otx.alienvault.com/taxii/discovery<br>https://reputation.alienvault.com/reputation.data<br>https://reputation.alienvault.com/reputation.generic |
 | Abuse.ch                 	|    ✔<br>✔<br>❌<br>✔    	|   ✔<br>✔<br>❌<br>✔   	| Hash<br>IP<br>Hash<br>URL 	| https://bazaar.abuse.ch/export/csv/full/<br>https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt<br>https://sslbl.abuse.ch/blacklist/sslblacklist.csv<br>https://urlhaus.abuse.ch/downloads/csv_online/ |
 | IBM X-Force              	|     ✔     	|   ✔   	|                           	| ✔                                      |
 | TOR Exit-Nodes           	|     ✔     	|   ✔   	|                           	| ✔                                      |
