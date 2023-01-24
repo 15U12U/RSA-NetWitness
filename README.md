@@ -9,3 +9,4 @@
 - Dashboards
   - [FortiSIEM](dashboards/FortiSIEM)
 - [FortiSIEM Useful Commands](fortisiem-useful-commands.md)
+- [SIEM Threat Intel Support](siem-threat-intel-integration.md)
