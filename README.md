@@ -1,4 +1,4 @@
-# SIEM Enhancements
+# SIEM Shorts
 
 - Parsers
 - Rules
