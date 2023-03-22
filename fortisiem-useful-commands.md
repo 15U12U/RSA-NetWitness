@@ -1,5 +1,10 @@
 # FortiSIEM Useful Commands
 
+## Useful FortiSIEM Binaries
+```bash
+/opt/phoenix/bin/
+```
+
 ## View/Verify License Information
 ```bash
 phLicenseTool --verify
@@ -8,7 +13,6 @@ phLicenseTool --support
 ```
 
 ## System Information
-### /opt/phoenix/bin/phShowVersion.sh
 ```bash
 phShowVersion.sh
 ```
@@ -43,6 +47,21 @@ phtools --stop phDataPurger
 get-fsm-health.py <super-ip> -u ec2-user -k <ssh-key> -n <no._of_nodes> -o fsm-aws.txt
 get-fsm-health.py <super-ip> -u <user> -p <password> -n <no._of_nodes> -o fsm-remote.txt
 get-fsm-health.py -local -o fsm-local.txt
+```
+
+## Register a FortiSIEM Collector Node
+```bash
+phProvisionCollector --add <user> '<password>' <Super IP or Host> <Organization> <CollectorName>
+```
+
+## Remove a FortiSIEM Collector Node
+### Log into PostgreSQL Database
+```bash
+psql -U phoenix phoenixdb
+```
+### Update the Table
+```psql
+update ph_sys_collector set natural_id = '' where name = '<collector name>'
 ```
 
 
