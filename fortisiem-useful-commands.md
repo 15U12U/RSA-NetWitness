@@ -42,7 +42,6 @@ phtools --stop phDataPurger
 ```
 
 ## FortiSIEM Heath Check
-### /opt/phoenix/bin/get-fsm-health.py
 ```bash
 get-fsm-health.py <super-ip> -u ec2-user -k <ssh-key> -n <no._of_nodes> -o fsm-aws.txt
 get-fsm-health.py <super-ip> -u <user> -p <password> -n <no._of_nodes> -o fsm-remote.txt
@@ -66,7 +65,6 @@ update ph_sys_collector set natural_id = '' where name = '<collector name>'
 
 
 ## Collect Back-end Logs for Fortinet Support
-### /opt/phoenix/bin/phziplogs
 ```bash
 phziplogs <directory> <no._of_days>
 ```
@@ -114,7 +112,6 @@ snmpwalk -v3 -u snmpv3user -l authPriv -a SHA -A 'SHAPassword' -x AES -X 'AESPas
 ```
 
 ## Check WMI Connectivity
-### /opt/phoenix/bin/checkWMIMonitorability
 ```bash
 checkWMIMonitorability <ip> <domain> <user> '<password>' <output_file>
 ```
@@ -124,7 +121,6 @@ checkWMIMonitorability 1.1.1.1 pandora wmiuser 'WMIPassword' wmitest.txt
 ```
 
 ## Check WMI Permissions and Access
-### /opt/phoenix/bin/wmic
 ```bash
 wmic -U <domain>/<user> //<ip> <query>
 ```
