@@ -48,9 +48,10 @@ get-fsm-health.py <super-ip> -u <user> -p <password> -n <no._of_nodes> -o fsm-re
 get-fsm-health.py -local -o fsm-local.txt
 ```
 ---
-## Register a FortiSIEM Collector Node
+## Register/Renew a FortiSIEM Collector Node
 ```bash
-phProvisionCollector --add <user> '<password>' <Super IP or Host> <Organization> <CollectorName>
+phProvisionCollector --add <user> '<password>' <Super IP or Hostname> <Organization> <CollectorName>
+phProvisionCollector --update <user> '<password>' <Super IP or Hostname> <Organization> <CollectorName>
 ```
 ---
 ## Remove a FortiSIEM Collector Node
