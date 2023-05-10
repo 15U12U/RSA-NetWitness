@@ -4,24 +4,24 @@
 ```bash
 /opt/phoenix/bin/
 ```
-
+---
 ## View/Verify License Information
 ```bash
 phLicenseTool --verify
 phLicenseTool --show
 phLicenseTool --support
 ```
-
+---
 ## System Information
 ```bash
 phShowVersion.sh
 ```
-
+---
 ## View FortiSIEM System Services Status
 ```bash
 phstatus
 ```
-
+---
 ## Start/Stop System Services
 ### All Services
 ```bash
@@ -40,19 +40,19 @@ phtools --stop ph<process-name>
 phtools --start phDataPurger
 phtools --stop phDataPurger
 ```
-
+---
 ## FortiSIEM Heath Check
 ```bash
 get-fsm-health.py <super-ip> -u ec2-user -k <ssh-key> -n <no._of_nodes> -o fsm-aws.txt
 get-fsm-health.py <super-ip> -u <user> -p <password> -n <no._of_nodes> -o fsm-remote.txt
 get-fsm-health.py -local -o fsm-local.txt
 ```
-
+---
 ## Register a FortiSIEM Collector Node
 ```bash
 phProvisionCollector --add <user> '<password>' <Super IP or Host> <Organization> <CollectorName>
 ```
-
+---
 ## Remove a FortiSIEM Collector Node
 ### Log into PostgreSQL Database
 ```bash
@@ -63,7 +63,7 @@ psql -U phoenix phoenixdb
 update ph_sys_collector set natural_id = '' where name = '<collector name>'
 ```
 
-
+---
 ## Collect Back-end Logs for Fortinet Support
 ```bash
 phziplogs <directory> <no._of_days>
@@ -72,7 +72,7 @@ phziplogs <directory> <no._of_days>
 ```bash
 phziplogs /tmp/support-case 2
 ```
-
+---
 ## Diagnostic CLI Commands
 ```bash
 phtools --stop all                  # Stop the ph processes
@@ -84,7 +84,7 @@ killall -10 ph<process-name>        # Turn off DEBUG mode for a ph process
 ```
 
 
----------------------------------------------------------------------------------------------------------------------
+---
 ## Check SNMP Connectivity
 ### SNMPv1/v2C
 ```bash
@@ -110,7 +110,7 @@ snmpwalk -v3 -u <user> -l <securityLevel> -a <authProtocol> -A '<authKey>' -x <p
 ```bash
 snmpwalk -v3 -u snmpv3user -l authPriv -a SHA -A 'SHAPassword' -x AES -X 'AESPassword'
 ```
-
+---
 ## Check WMI Connectivity
 ```bash
 checkWMIMonitorability <ip> <domain> <user> '<password>' <output_file>
@@ -119,7 +119,7 @@ checkWMIMonitorability <ip> <domain> <user> '<password>' <output_file>
 ```bash
 checkWMIMonitorability 1.1.1.1 pandora wmiuser 'WMIPassword' wmitest.txt
 ```
-
+---
 ## Check WMI Permissions and Access
 ```bash
 wmic -U <domain>/<user> //<ip> <query>
@@ -128,4 +128,4 @@ wmic -U <domain>/<user> //<ip> <query>
 ```bash
 wmic -U pandora/wmiuser //1.1.1.1 "select Domain from Win32_ComputerSystem"
 ```
-
+---
