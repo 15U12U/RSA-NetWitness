@@ -14,7 +14,7 @@ phLicenseTool --support
 ---
 ## System Information
 ```bash
-phShowVersion.sh
+phshowVersion.sh
 ```
 ---
 ## View FortiSIEM System Services Status
