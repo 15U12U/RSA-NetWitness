@@ -33,6 +33,7 @@ phstatus
 ```bash
 phtools --start all
 phtools --stop all
+phxctl [start|stop|reboot]
 ```
 
 ### Specific Service
