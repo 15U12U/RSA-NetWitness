@@ -116,7 +116,7 @@ Feb 7  14:24:09 swpservice: CEF:0|SWIFT|Alliance Web Platform|7.6.00|10006|logou
             <setEventAttribute attr="eventType">combineMsgId($_devProduct, " - ", $categoryType)</setEventAttribute>
         </when>
         <otherwise>
-            <setEventAttribute attr="eventType">combineMsgId($_devProduct, "-Generic")</setEventAttribute>
+            <setEventAttribute attr="eventType">combineMsgId($_devProduct, "- Generic")</setEventAttribute>
         </otherwise>
     </choose>
     <choose>
