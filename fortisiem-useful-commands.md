@@ -20,8 +20,36 @@
 ```bash
 /usr/local/fresh-install/logs/ansible.log
 ```
-
 ---
+
+## Proxy configuration for Internet Access
+### Create `proxy.sh` file
+```bash
+vim /etc/profile.d/proxy.sh
+```
+### Add the following content and edit the values
+```bash
+PROXY_URL="<proxy-ip-or-hostname>:<proxy-port>"
+export http_proxy="$PROXY_URL"
+export https_proxy="$PROXY_URL"
+export ftp_proxy="$PROXY_URL"
+export no_proxy="127.0.0.1,localhost"
+```
+
+### Execute the script file in current shell environment
+```bash
+source /etc/profile.d/proxy.sh
+```
+
+### URLs to be permitted via proxy
+```
+https://os-pkgs.fortisiem.fortinet.com
+https://os-pkgs-cdn.fortisiem.fortinet.com
+https://os-pkgs-r8.fortisiem.fortinet.com
+https://update.fortiguard.net
+```
+---
+
 ## FortiSIEM Binaries
 ```bash
 /opt/phoenix/bin/
@@ -111,7 +139,6 @@ killall -9 ph<process-name>         # Restart a ph process
 killall -10 ph<process-name>        # Turn on DEBUG mode for a ph process
 killall -10 ph<process-name>        # Turn off DEBUG mode for a ph process
 ```
-
 
 ## Rebuild App Server
 ```bash
