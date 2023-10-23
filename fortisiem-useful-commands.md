@@ -16,6 +16,11 @@
 ```bash
 /usr/local/bin/configFSM.sh
 ```
+### Install Log path
+```bash
+/usr/local/fresh-install/logs/ansible.log
+```
+
 ---
 ## FortiSIEM Binaries
 ```bash
