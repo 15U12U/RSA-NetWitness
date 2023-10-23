@@ -1,6 +1,21 @@
-# FortiSIEM Useful Commands
+# FortiSIEM Useful Info and Commands
 
-## Useful FortiSIEM Binaries
+## Default 'root' Password - OS
+| Username | Password      |
+| :------- | :------------ | 
+| root     | ProspectHills |
+
+## Default 'admin' Password - Web UI
+| Username | Password |
+| :------- | :------- | 
+| admin    | admin*1  |
+
+## FortiSIEM Supervisor/Supervisor Follower/Worker/Collector/Manager Installation Script
+```bash
+/usr/local/bin/configFSM.sh
+```
+
+## FortiSIEM Binaries
 ```bash
 /opt/phoenix/bin/
 ```
