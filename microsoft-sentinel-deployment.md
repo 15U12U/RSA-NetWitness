@@ -64,7 +64,86 @@ You'll need the following Azure built-in roles for different aspects of managing
 | `dc.services.visualstudio.com`                                               | Agent telemetry                                                      | Optional, not used in agent versions 1.24+                                                                                                     | Public                                                               |
 | `san-af-<region>-prod.azurewebsites.net`                                     | Azure Arc data processing service                                    | For Azure Arc-enabled SQL Server. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public                                                               |
 
+#### Proxy Configuration
+On Windows, the Azure Connected Machine agent will first check the proxy.url agent configuration property (starting with agent version 1.13), then the system-wide HTTPS_PROXY environment variable to determine which proxy server to use. If both are empty, no proxy server is used, even if the default Windows system-wide proxy setting is configured.
+
+Microsoft recommends using the agent-specific proxy configuration instead of the system environment variable.
+
+> [!NOTE]  
+> - Azure Arc-enabled servers doesn't support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/gateway) as a proxy for the Connected Machine agent.  
+> - You do not need to restart any services when reconfiguring the proxy settings with the azcmagent config command.
+
+##### View Proxy Configuration
+- **Agent Specific**
+```bash
+azcmagent show
+```
+
+##### Setup Proxy Configuration
+- **Agent Specific**
+```bash
+azcmagent config set proxy.url "http://ProxyServerFQDN:port"
+```
+
+- **System Specific (Windows)**
+```ps1
+# If a proxy server is needed, execute these commands with the proxy URL and port.
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://ProxyServerFQDN:port", "Machine")
+$env:HTTPS_PROXY = [System.Environment]::GetEnvironmentVariable("HTTPS_PROXY", "Machine")
+# For the changes to take effect, the agent services need to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds, ExtensionService, GCArcService
+```
+
+- **System Specific (Linux)**
+```bash
+sudo /opt/azcmagent/bin/azcmagent_proxy add "http://ProxyServerFQDN:port"
+```
+
+##### Verify Proxy Configuration
+- **Agent Specific**
+```bash
+azcmagent config get proxy.url
+```
+
+##### Remove Proxy Configuration
+- **Agent Specific**
+```bash
+azcmagent config clear proxy.url
+```
+
+- **System Specific (Windows)**
+```ps1
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", $null, "Machine")
+$env:HTTPS_PROXY = [System.Environment]::GetEnvironmentVariable("HTTPS_PROXY", "Machine")
+# For the changes to take effect, the agent services need to be restarted after the proxy environment variable removed.
+Restart-Service -Name himds, ExtensionService, GCArcService
+```
+
+- **System Specific (Linux)**
+```bash
+sudo /opt/azcmagent/bin/azcmagent_proxy remove
+```
+
+##### Proxy bypass for private endpoints
+
+| Proxy bypass value | Affected endpoints                                                                               |
+| :----------------- | :----------------------------------------------------------------------------------------------- |
+| **AAD**            | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net`                              |
+| **ARM**            | `management.azure.com`                                                                           |
+| **Arc**            | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net` |
+
+###### Setup Proxy Bypass
+```bash
+azcmagent config set proxy.bypass "Arc"
+azcmagent config set proxy.bypass "ARM,Arc"
+```
+
+###### Remove Proxy Bypass
+```bash
+azcmagent config clear proxy.bypass
+```
+
+
 [^1]: [Azure Arc-enable Servers - Prerequisites](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites)
+[^2]: [Azure Arc-enable Servers - Network Requirements](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements)
 
-
--
