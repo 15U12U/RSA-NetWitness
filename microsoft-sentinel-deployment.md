@@ -37,9 +37,9 @@ az provider register --namespace 'Microsoft.AzureArcData'
 You'll need the following Azure built-in roles for different aspects of managing connected machines:
 
 | Action                 | Role                                                                                                                                                                                                                                                                    | Assignment     |
-| :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- |
-| Onboard                | [Azure Connected Machine Onboarding](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-connected-machine-onboarding) / [Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor) | Resource Group |
-| Read / Modify / Delete | [Azure Connected Machine Resource Administrator](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-connected-machine-resource-administrator)                                                                                       | Resource Group |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------- |
+| Onboard            | [Azure Connected Machine Onboarding](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-connected-machine-onboarding)/[Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor) | Subscription/Resource Group |
+| Read/Modify/Delete | [Azure Connected Machine Resource Administrator](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-connected-machine-resource-administrator)                                                                                         | Subscription/Resource Group |
 
 
 [^1]: [Azure Arc-enable Servers - Prerequisites](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites)
