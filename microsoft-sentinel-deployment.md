@@ -144,6 +144,28 @@ azcmagent config clear proxy.bypass
 ```
 
 
+### Troubleshooting [^3]
+#### Agent Verbose Log Location
+##### Windows
+```ps1
+%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log
+```
+##### Linux
+```bash
+/var/opt/azcmagent/log/azcmagent.log
+```
+
+#### Enable Agent Verbose Log
+##### Windows
+```ps1
+& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
+```
+##### Linux
+```bash
+azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
+```
+
+
 [^1]: [Azure Arc-enable Servers - Prerequisites](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites)
 [^2]: [Azure Arc-enable Servers - Network Requirements](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements)
-
+[^3]: [Azure Arc-enable Servers - Troubleshooting](https://learn.microsoft.com/en-us/azure/azure-arc/servers/troubleshoot-agent-onboard)
