@@ -8,6 +8,6 @@
   - [Wazuh](rules/Wazuh)
 - Dashboards
   - [FortiSIEM](dashboards/FortiSIEM)
-- [FortiSIEM Useful Commands](fortisiem-useful-commands.md)
+- [FortiSIEM Shorts](fortisiem-shorts.md)
 - [SIEM Threat Intel Support](siem-threat-intel-support.md)
 - [Microsoft Sentinel Deployment Guide](microsoft-sentinel-deployment.md)
