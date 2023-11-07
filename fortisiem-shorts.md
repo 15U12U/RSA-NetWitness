@@ -191,3 +191,20 @@ wmic -U <domain>/<user> //<ip> <query>
 wmic -U pandora/wmiuser //1.1.1.1 "select Domain from Win32_ComputerSystem"
 ```
 ---
+
+## FortiSIEM Collector Event Buffer
+Collectors can buffer events in case events cannot be uploaded fast enough to Worker(s) or Supervisor nodes or they are unavailable for a period of time. Events are stored in compressed format in the following location `/opt/phoenix/cache/parser/events` before being sent to Worker(s) or Supervisor nodes. By default, a maximum of 10K files are stored and each file has a maximum uncompressed file size of 10MB.
+
+### Increase Collector Event Buffer Size
+When the number of files reaches the limit, events are dropped by the Collector. To change this limit, modify the following line in `/opt/phoenix/config/phoenix_config.txt`.
+```
+[BEGIN phEventPackager]
+max_num_event_files=10000
+```
+In case your Collectors are forwarding events to a 3rd party server, there is a similar limit of 10K files of events stored in `/opt/phoenix/cache/parser/fwd`. When this limit is reached, newer events are not forwarded. To change this limit, modify the following line in `/opt/phoenix/config/phoenix_config.txt`.
+```
+[BEGIN phEventForwarder]
+max_num_fwd_files=10000
+```
+> [!NOTE]
+> You may need to increase the size of `/opt` disk if you significantly increase the number of files stored. For configuration information on how to increase your `/opt` disk size, see Collector with Different OPT Disk Sizes in the ESX Install Guide.
