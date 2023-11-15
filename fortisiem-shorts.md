@@ -23,17 +23,13 @@
 ---
 
 ## Proxy configuration for Internet Access
-### Create `proxy.sh` file
-```bash
-vim /etc/profile.d/proxy.sh
-```
-### Add the following content and edit the values
+### Create a file `/etc/profile.d/proxy.sh` and add the following content 
 ```bash
 PROXY_URL="<proxy-ip-or-hostname>:<proxy-port>"
 export http_proxy="$PROXY_URL"
 export https_proxy="$PROXY_URL"
 export ftp_proxy="$PROXY_URL"
-export no_proxy="127.0.0.1,localhost"
+export no_proxy="127.0.0.1,localhost,<SUPER-IP>"
 ```
 
 ### Execute the script file in current shell environment
@@ -49,6 +45,25 @@ https://os-pkgs-r8.fortisiem.fortinet.com
 https://update.fortiguard.net
 ```
 ---
+
+## FortiSIEM Collector - Proxy confguration on Service Provider Deployment
+### Create a file `/etc/httpd/conf.d/agent-proxy.conf` and add the following content 
+```bash
+ProxyPass /phoenix/rest/register/windowsAgent https://<Super-IP>/phoenix/rest/register/windowsAgent
+ProxyPassReverse /phoenix/rest/register/windowsAgent https://<Super-IP>/phoenix/rest/register/windowsAgent
+ProxyPass /phoenix/rest/windowsAgent/update https://<Super-IP>/phoenix/rest/windowsAgent/update
+ProxyPassReverse /phoenix/rest/windowsAgent/update https://<Super-IP>/phoenix/rest/windowsAgent/update
+
+ProxyPass /WinAgentUpgrade/FSMLogAgent.exe https://<Super-IP>/WinAgentUpgrade/FSMLogAgent.exe
+ProxyPassReverse /WinAgentUpgrade/FSMLogAgent.exe https://<Super-IP>/WinAgentUpgrade/FSMLogAgent.exe
+ProxyPass /WinAgentUpgrade/AutoUpdate.exe https://<Super-IP>/WinAgentUpgrade/AutoUpdate.exe
+ProxyPassReverse /WinAgentUpgrade/AutoUpdate.exe https://<Super-IP>/WinAgentUpgrade/AutoUpdate.exe
+
+SSLProxyEngine on
+SSLProxyVerify none
+SSLProxyCheckPeerCN off
+SSLProxyCheckPeerExpire off
+```
 
 ## FortiSIEM Binaries
 ```bash
@@ -131,6 +146,11 @@ phziplogs <directory> <no._of_days>
 phziplogs /tmp/support-case 2
 ```
 ---
+
+## Verify `APP_SERVER_HOST` Configuration
+```bash
+grep APP_SERVER_HOST /opt/phoenix/config/phoenix_config.txt
+```
 
 ## Diagnostic CLI Commands
 ```bash
