@@ -63,7 +63,7 @@ Feb 7  14:24:09 swpservice: CEF:0|SWIFT|Alliance Web Platform|7.6.00|10006|logou
     <setEventAttribute attr="reptVendor">$_devVendor</setEventAttribute>
     <setEventAttribute attr="reptModel">$_devProduct</setEventAttribute>
     <setEventAttribute attr="signatureName">$_sigId</setEventAttribute>
-    <setEventAttribute attr="eventSeverity">$_severity</setEventAttribute>
+    <setEventAttribute attr="eventSeverityCat">$_severity</setEventAttribute>
     <setEventAttribute attr="_extension">replaceStrInStr($_extension, "\=", "=")</setEventAttribute>
     <collectFieldsByKeyValuePair kvsep="=" sep=" " src="$_extension">
         <attrKeyMap attr="_cn1" key="cn1"/>
