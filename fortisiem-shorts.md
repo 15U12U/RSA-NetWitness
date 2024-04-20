@@ -76,6 +76,11 @@ phLicenseTool --verify
 phLicenseTool --show
 phLicenseTool --support
 ```
+### Show PostgreSQL DB Password
+```bash
+phLicenseTool --showDatabasePassword
+```
+
 
 ## System Information
 ```bash
