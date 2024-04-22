@@ -80,6 +80,10 @@ phLicenseTool --support
 ```bash
 phLicenseTool --showDatabasePassword
 ```
+### Show Redis Password
+```bash
+phLicenseTool --showRedisPassword
+```
 
 
 ## System Information
