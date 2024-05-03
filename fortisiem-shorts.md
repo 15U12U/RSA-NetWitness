@@ -32,6 +32,11 @@ export ftp_proxy="$PROXY_URL"
 export no_proxy="127.0.0.1,localhost,<SUPER-IP>"
 ```
 
+### Edit the `/etc/yum.conf` file and add the following content
+```
+proxy=http://<proxy-ip-or-hostname>:<proxy-port>
+```
+
 ### Execute the script file in current shell environment
 ```bash
 source /etc/profile.d/proxy.sh
