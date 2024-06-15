@@ -1,20 +1,18 @@
-# Microsoft Sentinel Deployment Guide
-
-## Onboarding Azure Arc-enable Servers
-### 1. Prerequisites [^1]
-#### 1.1. Azure Resource Providers
+# Onboarding Azure Arc-enabled Servers
+## 1. Prerequisites [^1]
+### 1.1. Azure Resource Providers
 To use Azure Arc-enabled servers, the following [Azure resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) must be registered in your subscription:
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 - **Microsoft.HybridConnectivity**
 - **Microsoft.AzureArcData** (if you plan to Arc-enable SQL Servers)
 
-##### 1.1.1. Azure Portal
+#### 1.1.1. Azure Portal
 ```ps1
 Subscriptions > "Select {Subscription Name}" > Resource providers > "Select {Resource provider}" > Register
 ```
 
-##### 1.1.2. Azure PowerShell
+#### 1.1.2. Azure PowerShell
 ```ps1
 Connect-AzAccount
 Set-AzContext -SubscriptionId [Subscription Name]
@@ -24,7 +22,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.HybridConnectivity
 Register-AzResourceProvider -ProviderNamespace Microsoft.AzureArcData
 ```
 
-##### 1.1.3. Azure CLI
+#### 1.1.3. Azure CLI
 ```ps1
 az account set --subscription "{Subscription Name}"
 az provider register --namespace 'Microsoft.HybridCompute'
@@ -33,7 +31,7 @@ az provider register --namespace 'Microsoft.HybridConnectivity'
 az provider register --namespace 'Microsoft.AzureArcData'
 ```
 
-#### 1.2. Permissions
+### 1.2. Permissions
 You'll need the following Azure built-in roles for different aspects of managing connected machines:
 
 | Action                 | Role                                                                                                                                                                                                                                                                    | Assignment     |
@@ -41,7 +39,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 | Onboard            | [Azure Connected Machine Onboarding](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-connected-machine-onboarding)/[Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor) | Subscription/Resource Group |
 | Read/Modify/Delete | [Azure Connected Machine Resource Administrator](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-connected-machine-resource-administrator)                                                                                         | Subscription/Resource Group |
 
-#### 1.3. Supported Operating Systems
+### 1.3. Supported Operating Systems
 
 > [!IMPORTANT]
 > - Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent does not run on x86 (32-bit) or ARM-based architectures.
@@ -63,18 +61,18 @@ You'll need the following Azure built-in roles for different aspects of managing
   - Both Desktop and Server Core experiences are supported
   - Azure Editions are supported on Azure Stack HCI
 
-#### 1.4. Software Requirements
-##### 1.4.1. Windows
+### 1.4. Software Requirements
+#### 1.4.1. Windows
 - Windows Server 2008 R2 SP1 requires PowerShell 4.0 or later. Microsoft recommends running the latest version, [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-##### 1.4.2. Linux
+#### 1.4.2. Linux
 - systemd
 - wget (to download the installation script)
 - openssl
 - gnupg (Debian-based systems, only)
 
-### 2. Network Requirements [^2]
-#### 2.1. URLs
+## 2. Network Requirements [^2]
+### 2.1. URLs
 
 | Agent resource                                                               | Description                                                          | When required                                                                                                                                  | Endpoint used with private link                                      |
 | :--------------------------------------------------------------------------- | :------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------- |
@@ -95,7 +93,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 | `dc.services.visualstudio.com`                                               | Agent telemetry                                                      | Optional, not used in agent versions 1.24+                                                                                                     | Public                                                               |
 | `san-af-<region>-prod.azurewebsites.net`                                     | Azure Arc data processing service                                    | For Azure Arc-enabled SQL Server. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public                                                               |
 
-#### 2.2. Proxy Configuration
+### 2.2. Proxy Configuration
 On Windows, the Azure Connected Machine agent will first check the proxy.url agent configuration property (starting with agent version 1.13), then the system-wide HTTPS_PROXY environment variable to determine which proxy server to use. If both are empty, no proxy server is used, even if the default Windows system-wide proxy setting is configured.
 
 Microsoft recommends using the agent-specific proxy configuration instead of the system environment variable.
@@ -104,13 +102,13 @@ Microsoft recommends using the agent-specific proxy configuration instead of the
 > - Azure Arc-enabled servers doesn't support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/gateway) as a proxy for the Connected Machine agent.  
 > - You do not need to restart any services when reconfiguring the proxy settings with the azcmagent config command.
 
-##### 2.2.1. View Proxy Configuration
+#### 2.2.1. View Proxy Configuration
 - **Agent Specific**
 ```bash
 azcmagent show
 ```
 
-##### 2.2.2. Setup Proxy Configuration
+#### 2.2.2. Setup Proxy Configuration
 - **Agent Specific**
 ```bash
 azcmagent config set proxy.url "http://ProxyServerFQDN:port"
@@ -130,13 +128,13 @@ Restart-Service -Name himds, ExtensionService, GCArcService
 sudo /opt/azcmagent/bin/azcmagent_proxy add "http://ProxyServerFQDN:port"
 ```
 
-##### 2.2.3. Verify Proxy Configuration
+#### 2.2.3. Verify Proxy Configuration
 - **Agent Specific**
 ```bash
 azcmagent config get proxy.url
 ```
 
-##### 2.2.4. Remove Proxy Configuration
+#### 2.2.4. Remove Proxy Configuration
 - **Agent Specific**
 ```bash
 azcmagent config clear proxy.url
@@ -155,7 +153,7 @@ Restart-Service -Name himds, ExtensionService, GCArcService
 sudo /opt/azcmagent/bin/azcmagent_proxy remove
 ```
 
-##### 2.2.5. Proxy bypass for Private Endpoints
+#### 2.2.5. Proxy bypass for Private Endpoints
 
 | Proxy bypass value | Affected endpoints                                                                               |
 | :----------------- | :----------------------------------------------------------------------------------------------- |
@@ -163,35 +161,35 @@ sudo /opt/azcmagent/bin/azcmagent_proxy remove
 | **ARM**            | `management.azure.com`                                                                           |
 | **Arc**            | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net` |
 
-###### 2.2.5.1. Setup Proxy Bypass
+##### 2.2.5.1. Setup Proxy Bypass
 ```bash
 azcmagent config set proxy.bypass "Arc"
 azcmagent config set proxy.bypass "ARM,Arc"
 ```
 
-###### 2.2.5.2. Remove Proxy Bypass
+##### 2.2.5.2. Remove Proxy Bypass
 ```bash
 azcmagent config clear proxy.bypass
 ```
 
 
-### 3. Troubleshooting [^3]
-#### 3.1. Agent Verbose Log Location
-##### 3.1.1. Windows
+## 3. Troubleshooting [^3]
+### 3.1. Agent Verbose Log Location
+#### 3.1.1. Windows
 ```ps1
 %ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log
 ```
-##### 3.1.2. Linux
+#### 3.1.2. Linux
 ```bash
 /var/opt/azcmagent/log/azcmagent.log
 ```
 
-#### 3.2. Enable Agent Verbose Log
-##### 3.2.1. Windows
+### 3.2. Enable Agent Verbose Log
+#### 3.2.1. Windows
 ```ps1
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
-##### 3.2.2. Linux
+#### 3.2.2. Linux
 ```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
