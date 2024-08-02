@@ -8,7 +8,7 @@
   - [Wazuh](rules/Wazuh)
 - Dashboards
   - [FortiSIEM](dashboards/FortiSIEM)
-- Shorts
+- Guides
   - Fortinet FortiSIEM
     - [FortiSIEM Shorts](fortisiem-shorts.md)
     - [FortiSIEM Troubleshooting](fortisiem-troubleshooting.md)
