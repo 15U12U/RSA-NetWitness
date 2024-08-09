@@ -265,3 +265,27 @@ max_num_fwd_files=10000
 ```
 > [!NOTE]
 > You may need to increase the size of `/opt` disk if you significantly increase the number of files stored. For configuration information on how to increase your `/opt` disk size, see Collector with Different OPT Disk Sizes in the ESX Install Guide.
+
+
+## Automated CMDB Disk Space Management
+If the CMDB disk partition becomes full, then the system may not work correctly. To prevent this from happening, `6.3.2` introduced a CMDB disk space management framework.
+
+**Three** parameters are introduced in `phoenix_config.txt`.
+
+- **month_retain_limit**: Number of months for which incidents on the Supervisor node should be retained (default value **6 months**).
+- **cmdb_disk_space_low_threshold** (in MB): When free CMDB disk space falls below this defined threshold, disk management kicks in (default value 50MB).
+- **cmdb_disk_space_high_threshold** (in MB): When disk management kicks in, incidents are purged until CMDB disk space reaches this defined threshold (default value 100MB).
+
+Two audit events are introduced.
+
+- **PH_AUDIT_CMDB_DISK_PRUNE_SUCCESS**: This event indicates that free CMDB disk space fell below the low threshold (cmdb_disk_space_low_threshold) and old incidents and identity / location data were pruned to bring the free CMDB disk space above the high threshold (cmdb_disk_space_high_threshold).
+- **PH_AUDIT_CMDB_DISK_PRUNE_FAILED**: This event indicates that free CMDB disk space fell below the low threshold (cmdb_disk_space_low_threshold) and in spite of pruning older incidents and identity / location data, free CMDB disk space stays below the high threshold (cmdb_disk_space_high_threshold). To remedy this situation, the user must reduce the number of months of incidents and identity / location data in CMDB (month_retain_limit).
+
+
+Two system defined rules are included.
+
+- FortiSIEM: CMDB Disk space low - Prune successful.
+- FortiSIEM: CMDB Disk space low - Prune failed to keep free disk space above high threshold.
+
+
+
