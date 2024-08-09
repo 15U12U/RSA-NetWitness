@@ -104,7 +104,7 @@ cat /cmdb/data/pg_log/postgresql.log
 ## View FortiSIEM System Services Status
 ```bash
 phstatus
-phstatus -a # Detailed status of all FortiSIEM processes along with EPS and local I/O rates
+phstatus -a/--all # Detailed status of all FortiSIEM processes along with EPS and local I/O rates
 ```
 
 ## Start/Stop System Services
