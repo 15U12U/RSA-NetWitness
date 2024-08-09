@@ -104,13 +104,14 @@ cat /cmdb/data/pg_log/postgresql.log
 ## View FortiSIEM System Services Status
 ```bash
 phstatus
+phstatus -a # Detailed status of all FortiSIEM processes along with EPS and local I/O rates
 ```
 
 ## Start/Stop System Services
 ### All Services
 ```bash
-phtools --start all
-phtools --stop all
+phtools --start ALL
+phtools --stop ALL
 phxctl [start|stop|reboot]
 ```
 
@@ -125,6 +126,28 @@ phtools --stop ph<process-name>
 phtools --start phDataPurger
 phtools --stop phDataPurger
 ```
+
+## Statistics of System Services
+```bash
+phtools --stats ALL
+phtools --stats ph<process-name>
+```
+
+## Change the Log Level of System Services
+
+| Log Level |
+| :-------- |
+| ERROR     |
+| TRACE     |
+| INFO      |
+| DEBUG     |
+| CRITICAL  |
+
+```bash
+phtools --changelog <log-level> ALL
+phtools --changelog <log-level> ph<process-name>
+```
+
 ---
 ## FortiSIEM Heath Check
 ```bash
