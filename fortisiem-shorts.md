@@ -189,6 +189,16 @@ phziplogs /tmp/support-case 2
 grep APP_SERVER_HOST /opt/phoenix/config/phoenix_config.txt
 ```
 
+## Change the priority of the Parsers
+Edit the `/opt/phoenix/config/xml/parserOrder.csv` file
+
+> [!NOTE]
+> SyslogNGParser is always applied first and its priority is set to 0  
+> For parser with event format recognizer, use priority from 1 to 999  
+> For parser without event format recognizer, use priority from 10000 to 19999  
+> For parser not specified in this file, if it has an event format recognizer, its priority is set to 1000  
+> If it has no event format recognizer, its priority is set to 20000
+
 ## Diagnostic CLI Commands
 ```bash
 phtools --change-log DEBUG          # Change ph process logging level from INFO to DEBUG
