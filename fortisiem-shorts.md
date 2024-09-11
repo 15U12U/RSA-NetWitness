@@ -112,7 +112,8 @@ phstatus -a/--all # Detailed status of all FortiSIEM processes along with EPS an
 ```bash
 phtools --start ALL
 phtools --stop ALL
-phxctl [start|stop|reboot]
+killall -9 ph<process-name> # Restart a ph process
+phxctl [start|stop|reboot] # Clean Stop/Start/Reboot
 ```
 
 ### Specific Service
@@ -146,6 +147,8 @@ phtools --stats ph<process-name>
 ```bash
 phtools --changelog <log-level> ALL
 phtools --changelog <log-level> ph<process-name>
+killall -10 ph<process-name> # Turn on debug mode for a 'ph' process
+killall -10 ph<process-name> # Turn off debug mode if it's already enabled
 ```
 
 ---
