@@ -16,3 +16,5 @@
     - [Microsoft Sentinel Shorts](sentinel-shorts.md)
     - [SIEM Threat Intel Support](siem-threat-intel-support.md)
     - [Microsoft Sentinel Deployment Guide](microsoft-sentinel-deployment.md)
+  - Log Source Integration
+    - [CrowdStrike Falcon SIEM Connector](integrations/crowdstrike-falcon.md)
