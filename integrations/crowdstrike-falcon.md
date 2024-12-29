@@ -56,11 +56,6 @@ sudo dpkg -i [InstallationPackageName]
 
 ## 4. Configure the Falcon SIEM Connector
 4.1. Select the appropriate config file based on the output format supported by your SIEM 
-> Ex: Microsoft Sentinel supports "CEF" format. Therefore replace the original config file `/opt/crowdstrike/etc/cs.falconhoseclient.cfg` with the preset config file for CEF `/opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg`
-
-```bash
-cp /opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg /opt/crowdstrike/etc/cs.falconhoseclient.cfg
-```
 
 > [!NOTE]
 > Supported Output types
@@ -68,15 +63,21 @@ cp /opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg /opt/crowdstrike/etc/cs.falc
 > - Syslog
 > - Common Event Format (CEF)
 > - Log Event Extended Format (LEEF)
->
-> Preset Config files for each output type can be found in the following locations
 
-| Output Type | Config File                                         |
-| :---------- | :-------------------------------------------------- |
-| JSON        | `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`      |
-| Syslog      | `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`      |
-| CEF         | `/opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg`  |
-| LEEF        | `/opt/crowdstrike/etc/cs.falconhoseclient.leef.cfg` |
+Preset Config files for each output type can be found in the following locations
+
+| Output Type    | Config File                                         |
+| :------------- | :-------------------------------------------------- |
+| JSON \| Syslog | `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`      |
+| CEF            | `/opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg`  |
+| LEEF           | `/opt/crowdstrike/etc/cs.falconhoseclient.leef.cfg` |
+
+> [!TIP]
+> You can replace the original config file `/opt/crowdstrike/etc/cs.falconhoseclient.cfg` with the preset config file for CEF `/opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg` 
+
+```bash
+cp /opt/crowdstrike/etc/cs.falconhoseclient.cef.cfg /opt/crowdstrike/etc/cs.falconhoseclient.cfg
+```
 
 4.2. Edit the `/opt/crowdstrike/etc/cs.falconhoseclient.cfg` config file and paste the _**'Client ID'**_ and _**'Secret'**_ generated in _**Step 1.4.**_ accordingly
 
