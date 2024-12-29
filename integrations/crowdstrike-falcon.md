@@ -1,5 +1,6 @@
 # CrowdStrike Falcon SIEM Connector - Configuration Guide
 
+## Prerequisite
 > [!IMPORTANT]
 > Before using this method, you'll have to contact [CrowdStrike Support](https://supportportal.crowdstrike.com/) to enable Streaming APIs on your CrowdStrike account.
 
@@ -12,7 +13,7 @@
 
 1.3. Enter the _**CLIENT NAME**_ and insert a _**DESCRIPTION**_ if required
 
-1.4. Set the _**API SCOPES**_ as follows and Click _**'CREATE'**_
+1.4. Set the _**API SCOPES**_ as follows and Click _**'Create'**_
 
 | Scope         | Read                    |
 | :------------ | :---------------------: |
