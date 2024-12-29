@@ -1,7 +1,12 @@
 # CrowdStrike Falcon SIEM Connector - Configuration Guide
-## 1. Create an API Client for the CrowdStrike Falcon Streaming API
 
-1.1. Log in to the [CrowdStrike Falcon](https://falcon.crowdstrike.com/) Web Console, and go to the _**Support > API Clients and Keys**_
+> [!IMPORTANT]
+> Before using this method, you'll have to contact [CrowdStrike Support](https://supportportal.crowdstrike.com/) to enable Streaming APIs on your CrowdStrike account.
+
+<br>
+
+## 1. Create an API Client for the CrowdStrike Falcon Streaming API
+1.1. Navigate to _**Support > API Clients and Keys**_ on the [CrowdStrike Falcon](https://falcon.crowdstrike.com/) Web Console
 
 1.2. Click _**'Create API client'**_ under _**OAuth2 API Clients**_
 
@@ -19,7 +24,7 @@
 <br>
 
 ## 2. Download the CrowdStrike Falcon SIEM Connector Installation Package
-2.1. Log in to the [CrowdStrike Falcon](https://falcon.crowdstrike.com/) Web Console, and go to the _**Support > Tool Downloads**_
+2.1. Navigate to _**Support > Tool Downloads**_ on the [CrowdStrike Falcon](https://falcon.crowdstrike.com/) Web Console
 
 2.2. Select the appropriate **'Falcon SIEM Connector'** installation package and Click on the :arrow_down: button under _**Actions**_
 
