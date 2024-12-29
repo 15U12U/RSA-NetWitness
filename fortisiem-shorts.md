@@ -165,8 +165,8 @@ phProvisionCollector --add <user> '<password>' <Super IP or Hostname> <Organizat
 phProvisionCollector --update <user> '<password>' <Super IP or Hostname> <Organization> <CollectorName>
 ```
 
-> [!NOTE]
-> Pro Tip: If the Collector Node does not automatically reboot after successful registration, please check the DNS resolution of the Supervisor Node from the collector.
+> [!TIP]
+> If the Collector Node does not automatically reboot after successful registration, please check the DNS resolution of the Supervisor Node from the collector.
 
 ---
 
