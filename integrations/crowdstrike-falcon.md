@@ -82,6 +82,22 @@ client_id = <client_id>
 client_secret =  <secret>
 ```
 
+> [!NOTE]
+> You may also need to edit the _**'api_url'**_ and _**'request_token_url'**_, depending on where your CrowdStrike instance is located.
+
+| Instance | api_url / request_token_url      |
+| :------- | :------------------------------- |
+| US-1     | `api.crowdstrike.com`            |
+| US-2     | `api.us-2.crowdstrike.com`       |
+| US-GOV-1 | `api.lagger.gcw.crowdstrike.com` |
+| EU-1     | `api.eu-1.crowdstrike.com`       |
+
+```bash
+[Settings]
+api_url = https://<api_url>/sensors/entities/datafeed/v2
+request_token_url = https://<request_token_url>/oauth2/token
+```
+
 4.3. Confirm the output format is set to _**'syslog'**_
 ```bash
 [Settings]
