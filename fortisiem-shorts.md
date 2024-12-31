@@ -270,6 +270,11 @@ wmic -U pandora/wmiuser //1.1.1.1 "select Domain from Win32_ComputerSystem"
 runJdbcProbe.sh <jdbc-type> <host-ip> <host-port> <dbname> <username> <password> <sqlStat> <timeout> [auth-type]
 ```
 
+#### Example
+```bash
+runJdbcProbe.sh oracle '10.x.x.x' 1521 DNName user 'pass!2!' 'select count(*) from unified_audit_trail;' 120
+```
+
 
 ---
 ## FortiSIEM Collector Event Buffer
