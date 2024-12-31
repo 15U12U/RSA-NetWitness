@@ -265,7 +265,13 @@ wmic -U <domain>/<user> //<ip> <query>
 wmic -U pandora/wmiuser //1.1.1.1 "select Domain from Win32_ComputerSystem"
 ```
 ---
+## Check JDBC Connectivity
+```bash
+runJdbcProbe.sh <jdbc-type> <host-ip> <host-port> <dbname> <username> <password> <sqlStat> <timeout> [auth-type]
+```
 
+
+---
 ## FortiSIEM Collector Event Buffer
 Collectors can buffer events in case events cannot be uploaded fast enough to Worker(s) or Supervisor nodes or they are unavailable for a period of time. Events are stored in compressed format in the following location `/opt/phoenix/cache/parser/events` before being sent to Worker(s) or Supervisor nodes. By default, a maximum of 10K files are stored and each file has a maximum uncompressed file size of 10MB.
 
