@@ -1,0 +1,79 @@
+<!-- Author: Isuru Tharanga Malawige
+     Github: 15u12u
+     Description: A parser for Tripwire Enterprise FIM logs. This parser is designed to parse logs that are in CEF format.
+-->
+
+<!-- Matches "CEF:0|Tripwire, Inc.|" -->
+<eventFormatRecognizer><![CDATA[CEF:\d+\|Tripwire, Inc\.\|]]></eventFormatRecognizer>
+<parsingInstructions>
+    <collectFieldsByRegex src="$_rawmsg">
+        <regex><![CDATA[^(<:gPatSyslogPRI>)?(.*)?(<_year:gPatYear>-<_mon:gPatMonNum>-<_day:gPatDay>T<_time:gPatTime>\.<:gPatMSec>Z)?(.*)?CEF:<_body:gPatMesgBody>]]></regex>
+    </collectFieldsByRegex>
+    <setEventAttribute attr="deviceTime">toDateTime($_mon, $_day, $_year, $_time)</setEventAttribute>
+
+    <collectAndSetAttrByPos sep="|" src="$_body">
+        <attrPosMap attr="_version" pos="1"/>
+        <attrPosMap attr="_devVendor" pos="2"/>
+        <attrPosMap attr="_devProduct" pos="3"/>
+        <attrPosMap attr="appVersion" pos="4"/>
+        <attrPosMap attr="_sigId" pos="5"/>
+        <attrPosMap attr="categoryType" pos="6"/>
+        <attrPosMap attr="_severity" pos="7"/>
+        <attrPosMap attr="_extension" pos="8"/>
+    </collectAndSetAttrByPos>
+    <setEventAttribute attr="reptVendor">$_devVendor</setEventAttribute>
+    <setEventAttribute attr="reptModel">$_devProduct</setEventAttribute>
+    <setEventAttribute attr="signatureName">$_sigId</setEventAttribute>
+    <setEventAttribute attr="eventSeverityCat">$_severity</setEventAttribute>
+    <setEventAttribute attr="_extension">replaceStrInStr($_extension, "\=", "=")</setEventAttribute>
+    <collectFieldsByKeyValuePair kvsep="=" sep=" " src="$_extension">
+        <attrKeyMap attr="_cn1" key="cn1"/>
+        <attrKeyMap attr="_cn1Label" key="cn1Label"/>
+        <attrKeyMap attr="_cs1" key="cs1"/>
+        <attrKeyMap attr="_cs1Label" key="cs1Label"/>
+        <attrKeyMap attr="_cs2" key="cs1"/>
+        <attrKeyMap attr="_cs2Label" key="cs2Label"/>
+        <attrKeyMap attr="_cs3" key="cs3"/>
+        <attrKeyMap attr="_cs3Label" key="cs3Label"/> 
+        <attrKeyMap attr="msg" key="msg"/>
+        <attrKeyMap attr="operatorName" key="suid"/>
+        <attrKeyMap attr="hostName" key="dvchost"/>
+        <attrKeyMap attr="devEventTypeGrp" key="cat"/>
+        <attrKeyMap attr="_hostIpAddr" key="dvc"/>
+        <attrKeyMap attr="hostMACAddr" key="dvcmac"/>
+        <attrKeyMap attr="procName" key="deviceProcessName"/>
+        <attrKeyMap attr="destName" key="dhost"/>
+        <attrKeyMap attr="destIpAddr" key="dst"/>
+        <attrKeyMap attr="srcName" key="shost"/>
+        <attrKeyMap attr="srcIpAddr" key="src"/>
+        <attrKeyMap attr="srcTimeZone" key="dtz"/>
+        <attrKeyMap attr="_rt" key="rt"/>
+        <attrKeyMap attr="_eventAction" key="outcome"/>
+    </collectFieldsByKeyValuePair>
+
+    <choose>
+        <when test="exist categoryType">
+            <setEventAttribute attr="eventType">combineMsgId($_devProduct, " - ", $categoryType)</setEventAttribute>
+        </when>
+        <otherwise>
+            <setEventAttribute attr="eventType">combineMsgId($_devProduct, "- Generic")</setEventAttribute>
+        </otherwise>
+    </choose>
+    <choose>
+        <when test="exist _rt">
+            <switch>
+                <case>
+                    <collectFieldsByRegex src="$_rt">
+                        <regex><![CDATA[<_mon1:gPatMon>\s+<_day1:gPatDay>\s+<_year1:gPatYear>\s+<_time1:gPatTime>]]></regex>
+                    </collectFieldsByRegex>
+                    <setEventAttribute attr="eventTime">toDateTime($_mon1, $_day1, $_year1, $_time1)</setEventAttribute>
+                </case>
+                <case>
+                    <collectFieldsByRegex src="$_rt">
+                        <regex><![CDATA[^<eventTime:gPatInt>\d{3}$]]></regex>
+                    </collectFieldsByRegex>
+                </case>
+            </switch>
+        </when>
+    </choose>
+</parsingInstructions>
